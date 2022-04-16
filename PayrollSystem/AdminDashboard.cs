@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PayrollSystem
 {
-    public partial class AdminDashboard : Form
+    public partial class Dashboard : Form
     {
-        public AdminDashboard()
+        public Dashboard()
         {
             InitializeComponent();
         }

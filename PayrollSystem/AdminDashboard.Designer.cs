@@ -1,6 +1,6 @@
 ﻿namespace PayrollSystem
 {
-    partial class AdminDashboard
+    partial class Dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -69,9 +69,10 @@
             this.ViewDepartmentTab = new System.Windows.Forms.TabPage();
             this.listView2 = new System.Windows.Forms.ListView();
             this.DepartmentID = new System.Windows.Forms.ColumnHeader();
-            this.Name = new System.Windows.Forms.ColumnHeader();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.DepartmentName = new System.Windows.Forms.ColumnHeader();
+            this.viewPayGrade = new System.Windows.Forms.TabPage();
+            this.addPayGrade = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -80,15 +81,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
+            this.payRollInfo = new System.Windows.Forms.TabPage();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
             this.AddEmployeeTab.SuspendLayout();
             this.ViewEmployeesTab.SuspendLayout();
             this.AddDepartmentTab.SuspendLayout();
             this.ViewDepartmentTab.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.addPayGrade.SuspendLayout();
             this.SuspendLayout();
             // 
             // homeTab
@@ -98,9 +98,9 @@
             this.homeTab.Controls.Add(this.ViewEmployeesTab);
             this.homeTab.Controls.Add(this.AddDepartmentTab);
             this.homeTab.Controls.Add(this.ViewDepartmentTab);
-            this.homeTab.Controls.Add(this.tabPage2);
-            this.homeTab.Controls.Add(this.tabPage3);
-            this.homeTab.Controls.Add(this.tabPage1);
+            this.homeTab.Controls.Add(this.viewPayGrade);
+            this.homeTab.Controls.Add(this.addPayGrade);
+            this.homeTab.Controls.Add(this.payRollInfo);
             this.homeTab.Location = new System.Drawing.Point(12, 12);
             this.homeTab.Name = "homeTab";
             this.homeTab.SelectedIndex = 0;
@@ -385,9 +385,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(72, 113);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 15);
+            this.label10.Size = new System.Drawing.Size(105, 15);
             this.label10.TabIndex = 4;
-            this.label10.Text = "Name";
+            this.label10.Text = "Department Name";
             // 
             // label8
             // 
@@ -413,7 +413,7 @@
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.DepartmentID,
-            this.Name});
+            this.DepartmentName});
             this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView2.Location = new System.Drawing.Point(3, 3);
             this.listView2.Name = "listView2";
@@ -421,34 +421,43 @@
             this.listView2.TabIndex = 2;
             this.listView2.UseCompatibleStateImageBehavior = false;
             // 
-            // tabPage2
+            // viewPayGrade
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 413);
-            this.tabPage2.TabIndex = 5;
-            this.tabPage2.Text = "View Pay Grades";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.viewPayGrade.Location = new System.Drawing.Point(4, 24);
+            this.viewPayGrade.Name = "viewPayGrade";
+            this.viewPayGrade.Padding = new System.Windows.Forms.Padding(3);
+            this.viewPayGrade.Size = new System.Drawing.Size(768, 413);
+            this.viewPayGrade.TabIndex = 5;
+            this.viewPayGrade.Text = "View Pay Grades";
+            this.viewPayGrade.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // addPayGrade
             // 
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.textBox9);
-            this.tabPage3.Controls.Add(this.textBox10);
-            this.tabPage3.Controls.Add(this.textBox11);
-            this.tabPage3.Controls.Add(this.textBox12);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(768, 413);
-            this.tabPage3.TabIndex = 6;
-            this.tabPage3.Text = "Add Pay Grades";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.addPayGrade.Controls.Add(this.button6);
+            this.addPayGrade.Controls.Add(this.textBox9);
+            this.addPayGrade.Controls.Add(this.textBox10);
+            this.addPayGrade.Controls.Add(this.textBox11);
+            this.addPayGrade.Controls.Add(this.textBox12);
+            this.addPayGrade.Controls.Add(this.label11);
+            this.addPayGrade.Controls.Add(this.label12);
+            this.addPayGrade.Controls.Add(this.label13);
+            this.addPayGrade.Controls.Add(this.label14);
+            this.addPayGrade.Location = new System.Drawing.Point(4, 24);
+            this.addPayGrade.Name = "addPayGrade";
+            this.addPayGrade.Padding = new System.Windows.Forms.Padding(3);
+            this.addPayGrade.Size = new System.Drawing.Size(768, 413);
+            this.addPayGrade.TabIndex = 6;
+            this.addPayGrade.Text = "Add Pay Grades";
+            this.addPayGrade.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(191, 237);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(120, 33);
+            this.button6.TabIndex = 22;
+            this.button6.Text = "Save";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // textBox9
             // 
@@ -514,32 +523,23 @@
             this.label14.TabIndex = 13;
             this.label14.Text = "Grade ID";
             // 
-            // tabPage1
+            // payRollInfo
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(768, 413);
-            this.tabPage1.TabIndex = 7;
-            this.tabPage1.Text = "Payroll Info";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.payRollInfo.Location = new System.Drawing.Point(4, 24);
+            this.payRollInfo.Name = "payRollInfo";
+            this.payRollInfo.Size = new System.Drawing.Size(768, 413);
+            this.payRollInfo.TabIndex = 7;
+            this.payRollInfo.Text = "Payroll Info";
+            this.payRollInfo.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(191, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 33);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // DashboardForm
+            // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.homeTab);
-            this.Name = "DashboardForm";
-            this.Text = "DashboardForm";
+            this.Name = "Dashboard";
+            this.Text = "Dashboard";
             this.homeTab.ResumeLayout(false);
             this.Home_Tab.ResumeLayout(false);
             this.AddEmployeeTab.ResumeLayout(false);
@@ -548,8 +548,8 @@
             this.AddDepartmentTab.ResumeLayout(false);
             this.AddDepartmentTab.PerformLayout();
             this.ViewDepartmentTab.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.addPayGrade.ResumeLayout(false);
+            this.addPayGrade.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -597,10 +597,10 @@
         private TabPage ViewDepartmentTab;
         private ListView listView2;
         private ColumnHeader DepartmentID;
-        private ColumnHeader Name;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
-        private TabPage tabPage1;
+        private ColumnHeader DepartmentName;
+        private TabPage viewPayGrade;
+        private TabPage addPayGrade;
+        private TabPage payRollInfo;
         private TextBox textBox9;
         private TextBox textBox10;
         private TextBox textBox11;

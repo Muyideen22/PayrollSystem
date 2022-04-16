@@ -8,12 +8,12 @@ namespace PayrollSystem
 {
     internal class PayGrade
     {
-        public string GradeID { get; set; }
+        public int GradeID { get; set; }
         public string GradeName { get; set; }
-        public int HourlyPay { get; set; }
-        public int overTimePay { get; set; } = 0;
+        public double HourlyPay { get; set; }
+        public double overTimePay { get; set; } = 0;
     
-        public PayGrade(string ID, string name, int hourlyRate, int overtimeRate)
+        public PayGrade(int ID, string name, double hourlyRate, double overtimeRate)
         {
             GradeID = ID;
             GradeName = name;

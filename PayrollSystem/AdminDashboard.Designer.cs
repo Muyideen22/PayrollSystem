@@ -50,7 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ViewEmployeesTab = new System.Windows.Forms.TabPage();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewEmployees = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.FirstName = new System.Windows.Forms.ColumnHeader();
             this.LastName = new System.Windows.Forms.ColumnHeader();
@@ -63,7 +63,7 @@
             this.SaveDepartmentbutton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.ViewDepartmentTab = new System.Windows.Forms.TabPage();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.DepartmentlistView = new System.Windows.Forms.ListView();
             this.DepartmentID = new System.Windows.Forms.ColumnHeader();
             this.DepartmentName = new System.Windows.Forms.ColumnHeader();
             this.viewPayGradeTab = new System.Windows.Forms.TabPage();
@@ -76,6 +76,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.payRollInfoTab = new System.Windows.Forms.TabPage();
+            this.ViewDepartmentButton = new System.Windows.Forms.Button();
+            this.AddDepartmentbutton = new System.Windows.Forms.Button();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
             this.AddEmployeeTab.SuspendLayout();
@@ -103,6 +105,8 @@
             // 
             // Home_Tab
             // 
+            this.Home_Tab.Controls.Add(this.ViewDepartmentButton);
+            this.Home_Tab.Controls.Add(this.AddDepartmentbutton);
             this.Home_Tab.Controls.Add(this.ViewEmployeesbutton);
             this.Home_Tab.Controls.Add(this.PayrollButton);
             this.Home_Tab.Controls.Add(this.ViewPayGradesbutton);
@@ -128,7 +132,7 @@
             // 
             // PayrollButton
             // 
-            this.PayrollButton.Location = new System.Drawing.Point(97, 212);
+            this.PayrollButton.Location = new System.Drawing.Point(97, 275);
             this.PayrollButton.Name = "PayrollButton";
             this.PayrollButton.Size = new System.Drawing.Size(133, 28);
             this.PayrollButton.TabIndex = 3;
@@ -301,7 +305,7 @@
             // 
             // ViewEmployeesTab
             // 
-            this.ViewEmployeesTab.Controls.Add(this.listView1);
+            this.ViewEmployeesTab.Controls.Add(this.listViewEmployees);
             this.ViewEmployeesTab.Location = new System.Drawing.Point(4, 24);
             this.ViewEmployeesTab.Name = "ViewEmployeesTab";
             this.ViewEmployeesTab.Padding = new System.Windows.Forms.Padding(3);
@@ -310,9 +314,9 @@
             this.ViewEmployeesTab.Text = "View Employees";
             this.ViewEmployeesTab.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // listViewEmployees
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewEmployees.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.FirstName,
             this.LastName,
@@ -320,12 +324,12 @@
             this.Age,
             this.Department,
             this.PayGrade});
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(3, 3);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(762, 407);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewEmployees.Location = new System.Drawing.Point(3, 3);
+            this.listViewEmployees.Name = "listViewEmployees";
+            this.listViewEmployees.Size = new System.Drawing.Size(762, 407);
+            this.listViewEmployees.TabIndex = 1;
+            this.listViewEmployees.UseCompatibleStateImageBehavior = false;
             // 
             // AddDepartmentTab
             // 
@@ -368,7 +372,7 @@
             // 
             // ViewDepartmentTab
             // 
-            this.ViewDepartmentTab.Controls.Add(this.listView2);
+            this.ViewDepartmentTab.Controls.Add(this.DepartmentlistView);
             this.ViewDepartmentTab.Location = new System.Drawing.Point(4, 24);
             this.ViewDepartmentTab.Name = "ViewDepartmentTab";
             this.ViewDepartmentTab.Padding = new System.Windows.Forms.Padding(3);
@@ -377,17 +381,17 @@
             this.ViewDepartmentTab.Text = "View Departments";
             this.ViewDepartmentTab.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // DepartmentlistView
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DepartmentlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.DepartmentID,
             this.DepartmentName});
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.Location = new System.Drawing.Point(3, 3);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(762, 407);
-            this.listView2.TabIndex = 2;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.DepartmentlistView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DepartmentlistView.Location = new System.Drawing.Point(3, 3);
+            this.DepartmentlistView.Name = "DepartmentlistView";
+            this.DepartmentlistView.Size = new System.Drawing.Size(762, 407);
+            this.DepartmentlistView.TabIndex = 2;
+            this.DepartmentlistView.UseCompatibleStateImageBehavior = false;
             // 
             // viewPayGradeTab
             // 
@@ -483,6 +487,26 @@
             this.payRollInfoTab.Text = "Payroll Info";
             this.payRollInfoTab.UseVisualStyleBackColor = true;
             // 
+            // ViewDepartmentButton
+            // 
+            this.ViewDepartmentButton.Location = new System.Drawing.Point(323, 216);
+            this.ViewDepartmentButton.Name = "ViewDepartmentButton";
+            this.ViewDepartmentButton.Size = new System.Drawing.Size(136, 29);
+            this.ViewDepartmentButton.TabIndex = 6;
+            this.ViewDepartmentButton.Text = "View Departments";
+            this.ViewDepartmentButton.UseVisualStyleBackColor = true;
+            this.ViewDepartmentButton.Click += new System.EventHandler(this.ViewDepartmentButton_Click);
+            // 
+            // AddDepartmentbutton
+            // 
+            this.AddDepartmentbutton.Location = new System.Drawing.Point(97, 216);
+            this.AddDepartmentbutton.Name = "AddDepartmentbutton";
+            this.AddDepartmentbutton.Size = new System.Drawing.Size(133, 29);
+            this.AddDepartmentbutton.TabIndex = 5;
+            this.AddDepartmentbutton.Text = "Add Department";
+            this.AddDepartmentbutton.UseVisualStyleBackColor = true;
+            this.AddDepartmentbutton.Click += new System.EventHandler(this.AddDepartmentbutton_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -531,7 +555,7 @@
         private ComboBox EmployeeGenderComboBox;
         private Button SaveEmployeeButton;
         private Label label7;
-        private ListView listView1;
+        private ListView listViewEmployees;
         private ColumnHeader ID;
         private ColumnHeader FirstName;
         private ColumnHeader LastName;
@@ -544,7 +568,7 @@
         private TextBox DeptNametextBox;
         private Button SaveDepartmentbutton;
         private TabPage ViewDepartmentTab;
-        private ListView listView2;
+        private ListView DepartmentlistView;
         private ColumnHeader DepartmentID;
         private ColumnHeader DepartmentName;
         private TabPage viewPayGradeTab;
@@ -557,5 +581,7 @@
         private Label label12;
         private Label label13;
         private Button SaveGradebutton;
+        private Button ViewDepartmentButton;
+        private Button AddDepartmentbutton;
     }
 }

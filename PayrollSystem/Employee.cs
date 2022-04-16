@@ -3,15 +3,15 @@
     internal class Employee
     {
         
-        public string EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
         public string Gender { get; set; }
         public int Age { get; set; }
-        public Department Department { get; set; }
-        public PayGrade Grade { get; set; }
+        public int Department { get; set; }
+        public int Grade { get; set; }
 
-        public Employee(string ID, string fname, string lname, string gender, int age, Department department, PayGrade grade) {
+        public Employee(int ID, string fname, string lname, string gender, int age, int department, int grade) {
             EmployeeID = ID;
             FName = fname;
             LName = lname;

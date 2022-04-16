@@ -25,6 +25,27 @@ namespace PayrollSystem
         private void ViewEmployeesbutton_Click(object sender, EventArgs e)
         {
             this.homeTab.SelectedTab = this.ViewEmployeesTab;
+
+            List<Employee> employees = getEmployees();
+            listViewEmployees.Items.Clear();
+            
+            foreach (Employee employee in employees) 
+            {
+                listViewEmployees.Items.Add(
+                    new ListViewItem(
+                        new[] { 
+                            employee.EmployeeID.ToString(), 
+                            employee.FName, 
+                            employee.LName, 
+                            employee.Gender,
+                            employee.Age.ToString(),
+                            employee.Department.ToString(),
+                            employee.Grade.ToString()
+                        }
+                        )
+                    );
+            }
+            
         }
 
         private void addPaygradeButton_Click(object sender, EventArgs e)
@@ -35,6 +56,19 @@ namespace PayrollSystem
         private void ViewPayGradesbutton_Click(object sender, EventArgs e)
         {
             this.homeTab.SelectedTab = this.viewPayGradeTab;
+            List<PayGrade> paygrades = getPaygrades();
+            //paygrades.Items.Clear();
+            foreach (PayGrade grade in paygrades)
+            {
+                DepartmentlistView.Items.Add(
+                    new ListViewItem(
+                        new[] {
+                            grade.GradeID.ToString(),
+                            grade.GradeName,
+                            grade.HourlyPay.ToString(),
+                            grade.overTimePay.ToString(),
+                }));
+            }
         }
 
         private void PayrollButton_Click(object sender, EventArgs e)
@@ -85,6 +119,10 @@ namespace PayrollSystem
                     command.ExecuteNonQuery();
                     MessageBox.Show("New employee has been added!");
                     this.homeTab.SelectedTab = this.Home_Tab;
+                    foreach (TextBox a in textcontrols)
+                    {
+                        a.Text = "";
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -125,6 +163,7 @@ namespace PayrollSystem
 
                     command.ExecuteNonQuery();
                     MessageBox.Show("New department has been added!");
+                    DeptNametextBox.Text = "";
                     this.homeTab.SelectedTab = this.Home_Tab;
                 }
                 catch (Exception ex)
@@ -135,7 +174,116 @@ namespace PayrollSystem
                 conn.Close();
             }
         }
+        private List<Employee> getEmployees() 
+        {
+            List<Employee> employeesList = new List<Employee>();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"SELECT * FROM EMPLOYEE;";
 
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string fname = reader.GetString("FNAME");
+                            string lname = reader.GetString("LNAME");
+                            string gender = reader.GetString("GENDER");
+                            int emp_id = reader.GetInt32("EMPLOYEEID");
+                            int age = reader.GetInt32("AGE");
+                            int dept_id = reader.GetInt32("DEPARTMENTID");
+                            int grade_id = reader.GetInt32("GRADEID");
+
+
+                            employeesList.Add(new Employee(emp_id, fname, lname, gender, age, dept_id, grade_id));
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+            return employeesList;
+
+        }
+        private List<Department> getDepartments()
+        {
+            List<Department> departmentList = new List<Department>();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"SELECT * FROM DEPARTMENT;";
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString("DEPARTMENTNAME");
+                            int dept_id = reader.GetInt32("DEPARTMENTID");
+
+                            departmentList.Add(new Department(dept_id, name));
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+            return departmentList;
+        }
+        private List<PayGrade> getPaygrades()
+        {
+            List<PayGrade> paygradesList = new List<PayGrade>();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"SELECT * FROM PAYGRADE;";
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string name = reader.GetString(1);
+                            double hourly = reader.GetDouble(2);
+                            double overtime = reader.GetDouble(3);
+                            int grade_id = reader.GetInt32(0);
+                            paygradesList.Add(new PayGrade(grade_id, name, hourly, overtime));
+
+
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+
+            return paygradesList;
+        }
         private void SaveGradebutton_Click(object sender, EventArgs e)
         {
             
@@ -181,6 +329,28 @@ namespace PayrollSystem
                 }
                 conn.Close();
             }
+        }
+
+        private void ViewDepartmentButton_Click(object sender, EventArgs e)
+        {
+            List<Department> departments = getDepartments();
+            DepartmentlistView.Items.Clear();
+            foreach (Department dept in departments)
+            {
+                DepartmentlistView.Items.Add(
+                    new ListViewItem(
+                        new[] {
+                            dept.DepartmentID.ToString(),
+                            dept.DepartmentName
+                        }
+                        )
+                    );
+            }
+        }
+
+        private void AddDepartmentbutton_Click(object sender, EventArgs e)
+        {
+            this.homeTab.SelectedTab = this.AddDepartmentTab;
         }
     }
 }

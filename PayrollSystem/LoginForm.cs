@@ -20,7 +20,7 @@ namespace PayrollSystem
                 return;
             }
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new ();
             if (databaseConnectionWrapper != null)
             {
                 
@@ -48,8 +48,8 @@ namespace PayrollSystem
                                 string success = $"Logged in as {user_name}";
                                 MessageBox.Show(success);
                                 //MessageBox.Show("Correct credentials. Logged in!");
-                                this.Hide();
-                                Dashboard dashboard = new Dashboard();
+                                Hide();
+                                Dashboard dashboard = new();
                                 dashboard.Show();
                                 return;
 

@@ -36,21 +36,19 @@
             this.addPaygradeButton = new System.Windows.Forms.Button();
             this.addEmployeebutton = new System.Windows.Forms.Button();
             this.AddEmployeeTab = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SaveEmployeeButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmployeeGenderComboBox = new System.Windows.Forms.ComboBox();
+            this.EmployeePaygradeTextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeDepartmentTextbox = new System.Windows.Forms.TextBox();
+            this.EmployeeAgetextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeLnametextBox = new System.Windows.Forms.TextBox();
+            this.EmployeeFnametextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.ViewEmployeesTab = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
@@ -61,26 +59,22 @@
             this.Department = new System.Windows.Forms.ColumnHeader();
             this.PayGrade = new System.Windows.Forms.ColumnHeader();
             this.AddDepartmentTab = new System.Windows.Forms.TabPage();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button7 = new System.Windows.Forms.Button();
+            this.DeptNametextBox = new System.Windows.Forms.TextBox();
+            this.SaveDepartmentbutton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.ViewDepartmentTab = new System.Windows.Forms.TabPage();
             this.listView2 = new System.Windows.Forms.ListView();
             this.DepartmentID = new System.Windows.Forms.ColumnHeader();
             this.DepartmentName = new System.Windows.Forms.ColumnHeader();
             this.viewPayGradeTab = new System.Windows.Forms.TabPage();
             this.addPayGradeTab = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.SaveGradebutton = new System.Windows.Forms.Button();
+            this.OvertimetextBox = new System.Windows.Forms.TextBox();
+            this.hourlyPayTextBox = new System.Windows.Forms.TextBox();
+            this.gradeNameTextbox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.payRollInfoTab = new System.Windows.Forms.TabPage();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
@@ -174,21 +168,19 @@
             // 
             // AddEmployeeTab
             // 
-            this.AddEmployeeTab.Controls.Add(this.button1);
+            this.AddEmployeeTab.Controls.Add(this.SaveEmployeeButton);
             this.AddEmployeeTab.Controls.Add(this.label7);
-            this.AddEmployeeTab.Controls.Add(this.comboBox1);
-            this.AddEmployeeTab.Controls.Add(this.textBox6);
-            this.AddEmployeeTab.Controls.Add(this.textBox5);
-            this.AddEmployeeTab.Controls.Add(this.textBox4);
-            this.AddEmployeeTab.Controls.Add(this.textBox3);
-            this.AddEmployeeTab.Controls.Add(this.textBox2);
-            this.AddEmployeeTab.Controls.Add(this.textBox1);
+            this.AddEmployeeTab.Controls.Add(this.EmployeeGenderComboBox);
+            this.AddEmployeeTab.Controls.Add(this.EmployeePaygradeTextBox);
+            this.AddEmployeeTab.Controls.Add(this.EmployeeDepartmentTextbox);
+            this.AddEmployeeTab.Controls.Add(this.EmployeeAgetextBox);
+            this.AddEmployeeTab.Controls.Add(this.EmployeeLnametextBox);
+            this.AddEmployeeTab.Controls.Add(this.EmployeeFnametextBox);
             this.AddEmployeeTab.Controls.Add(this.label6);
             this.AddEmployeeTab.Controls.Add(this.label5);
             this.AddEmployeeTab.Controls.Add(this.label4);
             this.AddEmployeeTab.Controls.Add(this.label3);
             this.AddEmployeeTab.Controls.Add(this.label2);
-            this.AddEmployeeTab.Controls.Add(this.label1);
             this.AddEmployeeTab.Location = new System.Drawing.Point(4, 24);
             this.AddEmployeeTab.Name = "AddEmployeeTab";
             this.AddEmployeeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -197,78 +189,75 @@
             this.AddEmployeeTab.Text = "Add Employee";
             this.AddEmployeeTab.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // SaveEmployeeButton
             // 
-            this.button1.Location = new System.Drawing.Point(194, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 33);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SaveEmployeeButton.Location = new System.Drawing.Point(205, 324);
+            this.SaveEmployeeButton.Name = "SaveEmployeeButton";
+            this.SaveEmployeeButton.Size = new System.Drawing.Size(120, 33);
+            this.SaveEmployeeButton.TabIndex = 14;
+            this.SaveEmployeeButton.Text = "Save";
+            this.SaveEmployeeButton.UseVisualStyleBackColor = true;
+            this.SaveEmployeeButton.Click += new System.EventHandler(this.SaveEmployeeButton_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(83, 324);
+            this.label7.Location = new System.Drawing.Point(94, 279);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 15);
             this.label7.TabIndex = 13;
             this.label7.Text = "Pay Grade";
             // 
-            // comboBox1
+            // EmployeeGenderComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(223, 172);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 12;
+            this.EmployeeGenderComboBox.FormattingEnabled = true;
+            this.EmployeeGenderComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.EmployeeGenderComboBox.Location = new System.Drawing.Point(234, 127);
+            this.EmployeeGenderComboBox.Name = "EmployeeGenderComboBox";
+            this.EmployeeGenderComboBox.Size = new System.Drawing.Size(121, 23);
+            this.EmployeeGenderComboBox.TabIndex = 12;
             // 
-            // textBox6
+            // EmployeePaygradeTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(223, 316);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 11;
+            this.EmployeePaygradeTextBox.Location = new System.Drawing.Point(234, 271);
+            this.EmployeePaygradeTextBox.Name = "EmployeePaygradeTextBox";
+            this.EmployeePaygradeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.EmployeePaygradeTextBox.TabIndex = 11;
             // 
-            // textBox5
+            // EmployeeDepartmentTextbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(223, 263);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 10;
+            this.EmployeeDepartmentTextbox.Location = new System.Drawing.Point(234, 218);
+            this.EmployeeDepartmentTextbox.Name = "EmployeeDepartmentTextbox";
+            this.EmployeeDepartmentTextbox.Size = new System.Drawing.Size(100, 23);
+            this.EmployeeDepartmentTextbox.TabIndex = 10;
             // 
-            // textBox4
+            // EmployeeAgetextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(223, 209);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 9;
+            this.EmployeeAgetextBox.Location = new System.Drawing.Point(234, 164);
+            this.EmployeeAgetextBox.Name = "EmployeeAgetextBox";
+            this.EmployeeAgetextBox.Size = new System.Drawing.Size(100, 23);
+            this.EmployeeAgetextBox.TabIndex = 9;
             // 
-            // textBox3
+            // EmployeeLnametextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(223, 136);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 8;
+            this.EmployeeLnametextBox.Location = new System.Drawing.Point(234, 91);
+            this.EmployeeLnametextBox.Name = "EmployeeLnametextBox";
+            this.EmployeeLnametextBox.Size = new System.Drawing.Size(100, 23);
+            this.EmployeeLnametextBox.TabIndex = 8;
             // 
-            // textBox2
+            // EmployeeFnametextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(223, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 7;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(223, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 6;
+            this.EmployeeFnametextBox.Location = new System.Drawing.Point(234, 51);
+            this.EmployeeFnametextBox.Name = "EmployeeFnametextBox";
+            this.EmployeeFnametextBox.Size = new System.Drawing.Size(100, 23);
+            this.EmployeeFnametextBox.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 266);
+            this.label6.Location = new System.Drawing.Point(94, 221);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 15);
             this.label6.TabIndex = 5;
@@ -277,7 +266,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 212);
+            this.label5.Location = new System.Drawing.Point(94, 167);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 15);
             this.label5.TabIndex = 4;
@@ -286,7 +275,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(83, 175);
+            this.label4.Location = new System.Drawing.Point(94, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 15);
             this.label4.TabIndex = 3;
@@ -295,7 +284,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 139);
+            this.label3.Location = new System.Drawing.Point(94, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 15);
             this.label3.TabIndex = 2;
@@ -304,20 +293,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 96);
+            this.label2.Location = new System.Drawing.Point(94, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "First Name";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID";
             // 
             // ViewEmployeesTab
             // 
@@ -349,11 +329,9 @@
             // 
             // AddDepartmentTab
             // 
-            this.AddDepartmentTab.Controls.Add(this.textBox8);
-            this.AddDepartmentTab.Controls.Add(this.textBox7);
-            this.AddDepartmentTab.Controls.Add(this.button7);
+            this.AddDepartmentTab.Controls.Add(this.DeptNametextBox);
+            this.AddDepartmentTab.Controls.Add(this.SaveDepartmentbutton);
             this.AddDepartmentTab.Controls.Add(this.label10);
-            this.AddDepartmentTab.Controls.Add(this.label8);
             this.AddDepartmentTab.Location = new System.Drawing.Point(4, 24);
             this.AddDepartmentTab.Name = "AddDepartmentTab";
             this.AddDepartmentTab.Padding = new System.Windows.Forms.Padding(3);
@@ -362,28 +340,22 @@
             this.AddDepartmentTab.Text = "Add Department";
             this.AddDepartmentTab.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // DeptNametextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(197, 105);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 8;
+            this.DeptNametextBox.Location = new System.Drawing.Point(197, 105);
+            this.DeptNametextBox.Name = "DeptNametextBox";
+            this.DeptNametextBox.Size = new System.Drawing.Size(100, 23);
+            this.DeptNametextBox.TabIndex = 8;
             // 
-            // textBox7
+            // SaveDepartmentbutton
             // 
-            this.textBox7.Location = new System.Drawing.Point(197, 52);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
-            this.textBox7.TabIndex = 7;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(211, 190);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(143, 29);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Save Department";
-            this.button7.UseVisualStyleBackColor = true;
+            this.SaveDepartmentbutton.Location = new System.Drawing.Point(211, 190);
+            this.SaveDepartmentbutton.Name = "SaveDepartmentbutton";
+            this.SaveDepartmentbutton.Size = new System.Drawing.Size(143, 29);
+            this.SaveDepartmentbutton.TabIndex = 6;
+            this.SaveDepartmentbutton.Text = "Save Department";
+            this.SaveDepartmentbutton.UseVisualStyleBackColor = true;
+            this.SaveDepartmentbutton.Click += new System.EventHandler(this.SaveDepartmentbutton_Click);
             // 
             // label10
             // 
@@ -393,15 +365,6 @@
             this.label10.Size = new System.Drawing.Size(105, 15);
             this.label10.TabIndex = 4;
             this.label10.Text = "Department Name";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Department ID";
             // 
             // ViewDepartmentTab
             // 
@@ -438,15 +401,13 @@
             // 
             // addPayGradeTab
             // 
-            this.addPayGradeTab.Controls.Add(this.button6);
-            this.addPayGradeTab.Controls.Add(this.textBox9);
-            this.addPayGradeTab.Controls.Add(this.textBox10);
-            this.addPayGradeTab.Controls.Add(this.textBox11);
-            this.addPayGradeTab.Controls.Add(this.textBox12);
+            this.addPayGradeTab.Controls.Add(this.SaveGradebutton);
+            this.addPayGradeTab.Controls.Add(this.OvertimetextBox);
+            this.addPayGradeTab.Controls.Add(this.hourlyPayTextBox);
+            this.addPayGradeTab.Controls.Add(this.gradeNameTextbox);
             this.addPayGradeTab.Controls.Add(this.label11);
             this.addPayGradeTab.Controls.Add(this.label12);
             this.addPayGradeTab.Controls.Add(this.label13);
-            this.addPayGradeTab.Controls.Add(this.label14);
             this.addPayGradeTab.Location = new System.Drawing.Point(4, 24);
             this.addPayGradeTab.Name = "addPayGradeTab";
             this.addPayGradeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -455,42 +416,36 @@
             this.addPayGradeTab.Text = "Add Pay Grades";
             this.addPayGradeTab.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // SaveGradebutton
             // 
-            this.button6.Location = new System.Drawing.Point(191, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 33);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
+            this.SaveGradebutton.Location = new System.Drawing.Point(191, 237);
+            this.SaveGradebutton.Name = "SaveGradebutton";
+            this.SaveGradebutton.Size = new System.Drawing.Size(120, 33);
+            this.SaveGradebutton.TabIndex = 22;
+            this.SaveGradebutton.Text = "Save";
+            this.SaveGradebutton.UseVisualStyleBackColor = true;
+            this.SaveGradebutton.Click += new System.EventHandler(this.SaveGradebutton_Click);
             // 
-            // textBox9
+            // OvertimetextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(265, 172);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 23);
-            this.textBox9.TabIndex = 21;
+            this.OvertimetextBox.Location = new System.Drawing.Point(265, 172);
+            this.OvertimetextBox.Name = "OvertimetextBox";
+            this.OvertimetextBox.Size = new System.Drawing.Size(100, 23);
+            this.OvertimetextBox.TabIndex = 21;
             // 
-            // textBox10
+            // hourlyPayTextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(265, 133);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
-            this.textBox10.TabIndex = 20;
+            this.hourlyPayTextBox.Location = new System.Drawing.Point(265, 133);
+            this.hourlyPayTextBox.Name = "hourlyPayTextBox";
+            this.hourlyPayTextBox.Size = new System.Drawing.Size(100, 23);
+            this.hourlyPayTextBox.TabIndex = 20;
             // 
-            // textBox11
+            // gradeNameTextbox
             // 
-            this.textBox11.Location = new System.Drawing.Point(265, 93);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 23);
-            this.textBox11.TabIndex = 19;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(265, 48);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 23);
-            this.textBox12.TabIndex = 18;
+            this.gradeNameTextbox.Location = new System.Drawing.Point(265, 93);
+            this.gradeNameTextbox.Name = "gradeNameTextbox";
+            this.gradeNameTextbox.Size = new System.Drawing.Size(100, 23);
+            this.gradeNameTextbox.TabIndex = 19;
             // 
             // label11
             // 
@@ -518,15 +473,6 @@
             this.label13.Size = new System.Drawing.Size(73, 15);
             this.label13.TabIndex = 14;
             this.label13.Text = "Grade Name";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(125, 48);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 15);
-            this.label14.TabIndex = 13;
-            this.label14.Text = "Grade ID";
             // 
             // payRollInfoTab
             // 
@@ -570,20 +516,20 @@
         private Button addEmployeebutton;
         private TabPage AddEmployeeTab;
         private TabPage ViewEmployeesTab;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox EmployeePaygradeTextBox;
+        private TextBox EmployeeDepartmentTextbox;
+        private TextBox EmployeeAgetextBox;
+        private TextBox EmployeeLnametextBox;
+        private TextBox EmployeeFnametextBox;
+        private TextBox EmployeeIDtextBox;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private ComboBox comboBox1;
-        private Button button1;
+        private ComboBox EmployeeGenderComboBox;
+        private Button SaveEmployeeButton;
         private Label label7;
         private ListView listView1;
         private ColumnHeader ID;
@@ -595,10 +541,8 @@
         private ColumnHeader PayGrade;
         private TabPage AddDepartmentTab;
         private Label label10;
-        private Label label8;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private Button button7;
+        private TextBox DeptNametextBox;
+        private Button SaveDepartmentbutton;
         private TabPage ViewDepartmentTab;
         private ListView listView2;
         private ColumnHeader DepartmentID;
@@ -606,14 +550,12 @@
         private TabPage viewPayGradeTab;
         private TabPage addPayGradeTab;
         private TabPage payRollInfoTab;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox12;
+        private TextBox OvertimetextBox;
+        private TextBox hourlyPayTextBox;
+        private TextBox gradeNameTextbox;
         private Label label11;
         private Label label12;
         private Label label13;
-        private Label label14;
-        private Button button6;
+        private Button SaveGradebutton;
     }
 }

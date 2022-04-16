@@ -21,12 +21,10 @@ namespace PayrollSystem
             }
 
             DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper == null)
+            if (databaseConnectionWrapper != null)
             {
                 
-            }
-            else
-            {
+            
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
                 try
                 {

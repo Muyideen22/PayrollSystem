@@ -29,7 +29,14 @@ namespace PayrollSystem
 
             List<Employee> employees = getEmployees();
             listViewEmployees.Items.Clear();
-            
+            listViewEmployees.Columns.Clear();
+            string[] columnNames = { "ID", "First Name", "Last Name", "Gender", "Age",
+            "Department", "Pay Grade"};
+            foreach (string a in columnNames)
+            {
+                listViewEmployees.Columns.Add(a, 70);
+
+            }
             foreach (Employee employee in employees) 
             {
                 listViewEmployees.Items.Add(
@@ -58,10 +65,16 @@ namespace PayrollSystem
         {
             this.homeTab.SelectedTab = this.viewPayGradeTab;
             List<PayGrade> paygrades = getPaygrades();
-            //paygrades.Items.Clear();
+            PayGradeslistView.Items.Clear();
+            PayGradeslistView.Columns.Clear();
+            foreach (String a  in new[] { "ID", "Name", "Hourly Pay", "Overtime Pay" } )
+            {
+                PayGradeslistView.Columns.Add(a, 100);
+
+            }
             foreach (PayGrade grade in paygrades)
             {
-                DepartmentlistView.Items.Add(
+                PayGradeslistView.Items.Add(
                     new ListViewItem(
                         new[] {
                             grade.GradeID.ToString(),
@@ -340,6 +353,9 @@ namespace PayrollSystem
         {
             List<Department> departments = getDepartments();
             DepartmentlistView.Items.Clear();
+            DepartmentlistView.Columns.Clear();
+            DepartmentlistView.Columns.Add("ID", 100);
+            DepartmentlistView.Columns.Add("Name", 100);
             foreach (Department dept in departments)
             {
                 DepartmentlistView.Items.Add(

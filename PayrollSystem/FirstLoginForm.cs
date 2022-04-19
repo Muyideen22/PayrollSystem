@@ -19,14 +19,14 @@ namespace PayrollSystem
 
         private void Employeebutton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             EmployeeLoginForm employeeLoginForm = new();
             employeeLoginForm.Show();
         }
 
         private void Adminbutton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             AdminLoginForm adminlogin = new();
             adminlogin.Show();
         }

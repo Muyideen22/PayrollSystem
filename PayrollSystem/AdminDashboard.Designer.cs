@@ -78,12 +78,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.payRollInfoTab = new System.Windows.Forms.TabPage();
+            this.PayGradeslistView = new System.Windows.Forms.ListView();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
             this.AddEmployeeTab.SuspendLayout();
             this.ViewEmployeesTab.SuspendLayout();
             this.AddDepartmentTab.SuspendLayout();
             this.ViewDepartmentTab.SuspendLayout();
+            this.viewPayGradeTab.SuspendLayout();
             this.addPayGradeTab.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -411,14 +413,17 @@
             this.DepartmentID,
             this.DepartmentName});
             this.DepartmentlistView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DepartmentlistView.GridLines = true;
             this.DepartmentlistView.Location = new System.Drawing.Point(3, 3);
             this.DepartmentlistView.Name = "DepartmentlistView";
             this.DepartmentlistView.Size = new System.Drawing.Size(762, 407);
             this.DepartmentlistView.TabIndex = 2;
             this.DepartmentlistView.UseCompatibleStateImageBehavior = false;
+            this.DepartmentlistView.View = System.Windows.Forms.View.Details;
             // 
             // viewPayGradeTab
             // 
+            this.viewPayGradeTab.Controls.Add(this.PayGradeslistView);
             this.viewPayGradeTab.Location = new System.Drawing.Point(4, 24);
             this.viewPayGradeTab.Name = "viewPayGradeTab";
             this.viewPayGradeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -511,6 +516,17 @@
             this.payRollInfoTab.Text = "Payroll Info";
             this.payRollInfoTab.UseVisualStyleBackColor = true;
             // 
+            // PayGradeslistView
+            // 
+            this.PayGradeslistView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PayGradeslistView.GridLines = true;
+            this.PayGradeslistView.Location = new System.Drawing.Point(3, 3);
+            this.PayGradeslistView.Name = "PayGradeslistView";
+            this.PayGradeslistView.Size = new System.Drawing.Size(762, 407);
+            this.PayGradeslistView.TabIndex = 0;
+            this.PayGradeslistView.UseCompatibleStateImageBehavior = false;
+            this.PayGradeslistView.View = System.Windows.Forms.View.Details;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -527,6 +543,7 @@
             this.AddDepartmentTab.ResumeLayout(false);
             this.AddDepartmentTab.PerformLayout();
             this.ViewDepartmentTab.ResumeLayout(false);
+            this.viewPayGradeTab.ResumeLayout(false);
             this.addPayGradeTab.ResumeLayout(false);
             this.addPayGradeTab.PerformLayout();
             this.ResumeLayout(false);
@@ -587,5 +604,6 @@
         private Button SaveGradebutton;
         private Button ViewDepartmentButton;
         private Button AddDepartmentbutton;
+        private ListView PayGradeslistView;
     }
 }

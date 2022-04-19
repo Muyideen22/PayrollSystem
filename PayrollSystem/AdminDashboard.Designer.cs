@@ -69,6 +69,7 @@
             this.DepartmentID = new System.Windows.Forms.ColumnHeader();
             this.DepartmentName = new System.Windows.Forms.ColumnHeader();
             this.viewPayGradeTab = new System.Windows.Forms.TabPage();
+            this.PayGradeslistView = new System.Windows.Forms.ListView();
             this.addPayGradeTab = new System.Windows.Forms.TabPage();
             this.SaveGradebutton = new System.Windows.Forms.Button();
             this.OvertimetextBox = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.payRollInfoTab = new System.Windows.Forms.TabPage();
-            this.PayGradeslistView = new System.Windows.Forms.ListView();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
             this.AddEmployeeTab.SuspendLayout();
@@ -432,6 +432,17 @@
             this.viewPayGradeTab.Text = "View Pay Grades";
             this.viewPayGradeTab.UseVisualStyleBackColor = true;
             // 
+            // PayGradeslistView
+            // 
+            this.PayGradeslistView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PayGradeslistView.GridLines = true;
+            this.PayGradeslistView.Location = new System.Drawing.Point(3, 3);
+            this.PayGradeslistView.Name = "PayGradeslistView";
+            this.PayGradeslistView.Size = new System.Drawing.Size(762, 407);
+            this.PayGradeslistView.TabIndex = 0;
+            this.PayGradeslistView.UseCompatibleStateImageBehavior = false;
+            this.PayGradeslistView.View = System.Windows.Forms.View.Details;
+            // 
             // addPayGradeTab
             // 
             this.addPayGradeTab.Controls.Add(this.SaveGradebutton);
@@ -515,17 +526,6 @@
             this.payRollInfoTab.TabIndex = 7;
             this.payRollInfoTab.Text = "Payroll Info";
             this.payRollInfoTab.UseVisualStyleBackColor = true;
-            // 
-            // PayGradeslistView
-            // 
-            this.PayGradeslistView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PayGradeslistView.GridLines = true;
-            this.PayGradeslistView.Location = new System.Drawing.Point(3, 3);
-            this.PayGradeslistView.Name = "PayGradeslistView";
-            this.PayGradeslistView.Size = new System.Drawing.Size(762, 407);
-            this.PayGradeslistView.TabIndex = 0;
-            this.PayGradeslistView.UseCompatibleStateImageBehavior = false;
-            this.PayGradeslistView.View = System.Windows.Forms.View.Details;
             // 
             // Dashboard
             // 

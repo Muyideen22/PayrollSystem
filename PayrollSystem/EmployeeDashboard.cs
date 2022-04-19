@@ -41,6 +41,38 @@ namespace PayrollSystem
             string reason = ReasontextBox.Text;
             DateTime _startDate = startDate.Value;
             DateTime _endDate = endDate.Value;
+
+            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"
+                                INSERT INTO LEAVEREQUEST (EMPLOYEEID, STARTDATE, ENDDATE, REASON)
+                                values(@emp_id, @start,@end, @reason);";
+
+                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
+                    command.Parameters.AddWithValue("@start", _startDate);
+                    command.Parameters.AddWithValue("@end", _endDate);
+                    command.Parameters.AddWithValue("@reason", reason);
+
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Leave request details have been saved!");
+                    this.EmployeeHomeTab.SelectedTab = this.HomeTab;
+                    ReasontextBox.Text = "";
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+
         }
 
         private void SaveAttendanceButton_Click(object sender, EventArgs e)
@@ -55,6 +87,42 @@ namespace PayrollSystem
             DateTime _endDate = weeklyEndDate.Value;
             double regularHours = double.Parse(RegularHours.Text);
             double overtime = double.Parse(OvertimeHours.Text);
+
+            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"
+                                INSERT INTO ATTENDANCE (EMPLOYEEID, STARTDATE, ENDDATE,
+                                REGULARHOURS, OVERTIMEHOURS) values(@emp_id, @start, 
+                                @end, @reg_hrs, @over_hrs);";
+
+                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
+                    command.Parameters.AddWithValue("@start", _startDate);
+                    command.Parameters.AddWithValue("@end", _endDate);
+                    command.Parameters.AddWithValue("@reg_hrs", regularHours);
+                    command.Parameters.AddWithValue("@over_hrs", overtime);
+
+                    command.Prepare();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("Attendance details have been saved!");
+                    this.EmployeeHomeTab.SelectedTab = this.HomeTab;
+                    foreach (TextBox a in new[] { RegularHours , OvertimeHours})
+                    {
+                        a.Text = "";
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
 
         }
 

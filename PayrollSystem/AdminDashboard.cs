@@ -27,6 +27,12 @@ namespace PayrollSystem
             //TODO
             this.homeTab.SelectedTab = this.ViewEmployeesTab;
 
+            populateEmployeesListView();
+
+        }
+
+        private void populateEmployeesListView()
+        {
             List<Employee> employees = getEmployees();
             listViewEmployees.Items.Clear();
             listViewEmployees.Columns.Clear();
@@ -37,14 +43,14 @@ namespace PayrollSystem
                 listViewEmployees.Columns.Add(a, 70);
 
             }
-            foreach (Employee employee in employees) 
+            foreach (Employee employee in employees)
             {
                 listViewEmployees.Items.Add(
                     new ListViewItem(
-                        new[] { 
-                            employee.EmployeeID.ToString(), 
-                            employee.FName, 
-                            employee.LName, 
+                        new[] {
+                            employee.EmployeeID.ToString(),
+                            employee.FName,
+                            employee.LName,
                             employee.Gender,
                             employee.Age.ToString(),
                             employee.Department.ToString(),
@@ -53,7 +59,6 @@ namespace PayrollSystem
                         )
                     );
             }
-            
         }
 
         private void addPaygradeButton_Click(object sender, EventArgs e)
@@ -375,5 +380,11 @@ namespace PayrollSystem
         {
             this.homeTab.SelectedTab = this.AddDepartmentTab;
         }
+
+        private void GeneratePayroll()
+        {
+
+        }
+
     }
 }

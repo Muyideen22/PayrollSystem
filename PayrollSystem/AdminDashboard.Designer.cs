@@ -30,6 +30,8 @@
         {
             this.homeTab = new System.Windows.Forms.TabControl();
             this.Home_Tab = new System.Windows.Forms.TabPage();
+            this.ViewDepartmentButton = new System.Windows.Forms.Button();
+            this.AddDepartmentbutton = new System.Windows.Forms.Button();
             this.ViewEmployeesbutton = new System.Windows.Forms.Button();
             this.PayrollButton = new System.Windows.Forms.Button();
             this.ViewPayGradesbutton = new System.Windows.Forms.Button();
@@ -76,8 +78,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.payRollInfoTab = new System.Windows.Forms.TabPage();
-            this.ViewDepartmentButton = new System.Windows.Forms.Button();
-            this.AddDepartmentbutton = new System.Windows.Forms.Button();
             this.homeTab.SuspendLayout();
             this.Home_Tab.SuspendLayout();
             this.AddEmployeeTab.SuspendLayout();
@@ -119,6 +119,26 @@
             this.Home_Tab.TabIndex = 0;
             this.Home_Tab.Text = "Home";
             this.Home_Tab.UseVisualStyleBackColor = true;
+            // 
+            // ViewDepartmentButton
+            // 
+            this.ViewDepartmentButton.Location = new System.Drawing.Point(323, 216);
+            this.ViewDepartmentButton.Name = "ViewDepartmentButton";
+            this.ViewDepartmentButton.Size = new System.Drawing.Size(136, 29);
+            this.ViewDepartmentButton.TabIndex = 6;
+            this.ViewDepartmentButton.Text = "View Departments";
+            this.ViewDepartmentButton.UseVisualStyleBackColor = true;
+            this.ViewDepartmentButton.Click += new System.EventHandler(this.ViewDepartmentButton_Click);
+            // 
+            // AddDepartmentbutton
+            // 
+            this.AddDepartmentbutton.Location = new System.Drawing.Point(97, 216);
+            this.AddDepartmentbutton.Name = "AddDepartmentbutton";
+            this.AddDepartmentbutton.Size = new System.Drawing.Size(133, 29);
+            this.AddDepartmentbutton.TabIndex = 5;
+            this.AddDepartmentbutton.Text = "Add Department";
+            this.AddDepartmentbutton.UseVisualStyleBackColor = true;
+            this.AddDepartmentbutton.Click += new System.EventHandler(this.AddDepartmentbutton_Click);
             // 
             // ViewEmployeesbutton
             // 
@@ -325,11 +345,15 @@
             this.Department,
             this.PayGrade});
             this.listViewEmployees.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewEmployees.FullRowSelect = true;
+            this.listViewEmployees.GridLines = true;
             this.listViewEmployees.Location = new System.Drawing.Point(3, 3);
             this.listViewEmployees.Name = "listViewEmployees";
             this.listViewEmployees.Size = new System.Drawing.Size(762, 407);
+            this.listViewEmployees.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewEmployees.TabIndex = 1;
             this.listViewEmployees.UseCompatibleStateImageBehavior = false;
+            this.listViewEmployees.View = System.Windows.Forms.View.Details;
             // 
             // AddDepartmentTab
             // 
@@ -486,26 +510,6 @@
             this.payRollInfoTab.TabIndex = 7;
             this.payRollInfoTab.Text = "Payroll Info";
             this.payRollInfoTab.UseVisualStyleBackColor = true;
-            // 
-            // ViewDepartmentButton
-            // 
-            this.ViewDepartmentButton.Location = new System.Drawing.Point(323, 216);
-            this.ViewDepartmentButton.Name = "ViewDepartmentButton";
-            this.ViewDepartmentButton.Size = new System.Drawing.Size(136, 29);
-            this.ViewDepartmentButton.TabIndex = 6;
-            this.ViewDepartmentButton.Text = "View Departments";
-            this.ViewDepartmentButton.UseVisualStyleBackColor = true;
-            this.ViewDepartmentButton.Click += new System.EventHandler(this.ViewDepartmentButton_Click);
-            // 
-            // AddDepartmentbutton
-            // 
-            this.AddDepartmentbutton.Location = new System.Drawing.Point(97, 216);
-            this.AddDepartmentbutton.Name = "AddDepartmentbutton";
-            this.AddDepartmentbutton.Size = new System.Drawing.Size(133, 29);
-            this.AddDepartmentbutton.TabIndex = 5;
-            this.AddDepartmentbutton.Text = "Add Department";
-            this.AddDepartmentbutton.UseVisualStyleBackColor = true;
-            this.AddDepartmentbutton.Click += new System.EventHandler(this.AddDepartmentbutton_Click);
             // 
             // Dashboard
             // 

@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+        public int EmployeeID { get; set; }
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -34,15 +34,15 @@
             this.AddAttendancebutton = new System.Windows.Forms.Button();
             this.UpdteDetailsbutton = new System.Windows.Forms.Button();
             this.DetailsTab = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
+            this.SaveDetailsButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.GenderSelect = new System.Windows.Forms.ComboBox();
+            this.PayGradeTextBox = new System.Windows.Forms.TextBox();
+            this.DepartmentTextBox = new System.Windows.Forms.TextBox();
+            this.AgeTextBox = new System.Windows.Forms.TextBox();
+            this.LnameTextBox = new System.Windows.Forms.TextBox();
+            this.FnameTextBox = new System.Windows.Forms.TextBox();
+            this.IDtextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,21 +50,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.attendanceTab = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.SaveAttendanceButton = new System.Windows.Forms.Button();
+            this.weeklyEndDate = new System.Windows.Forms.DateTimePicker();
+            this.weeklyStartDate = new System.Windows.Forms.DateTimePicker();
+            this.OvertimeHours = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.RegularHours = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.LeaveTab = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.SaveLeavebutton = new System.Windows.Forms.Button();
+            this.ReasontextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.endDate = new System.Windows.Forms.DateTimePicker();
+            this.startDate = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.EmployeeHomeTab.SuspendLayout();
@@ -131,15 +131,15 @@
             // 
             // DetailsTab
             // 
-            this.DetailsTab.Controls.Add(this.button5);
+            this.DetailsTab.Controls.Add(this.SaveDetailsButton);
             this.DetailsTab.Controls.Add(this.label7);
-            this.DetailsTab.Controls.Add(this.comboBox1);
-            this.DetailsTab.Controls.Add(this.textBox6);
-            this.DetailsTab.Controls.Add(this.textBox5);
-            this.DetailsTab.Controls.Add(this.textBox4);
-            this.DetailsTab.Controls.Add(this.textBox3);
-            this.DetailsTab.Controls.Add(this.textBox2);
-            this.DetailsTab.Controls.Add(this.textBox1);
+            this.DetailsTab.Controls.Add(this.GenderSelect);
+            this.DetailsTab.Controls.Add(this.PayGradeTextBox);
+            this.DetailsTab.Controls.Add(this.DepartmentTextBox);
+            this.DetailsTab.Controls.Add(this.AgeTextBox);
+            this.DetailsTab.Controls.Add(this.LnameTextBox);
+            this.DetailsTab.Controls.Add(this.FnameTextBox);
+            this.DetailsTab.Controls.Add(this.IDtextBox);
             this.DetailsTab.Controls.Add(this.label6);
             this.DetailsTab.Controls.Add(this.label5);
             this.DetailsTab.Controls.Add(this.label4);
@@ -154,14 +154,15 @@
             this.DetailsTab.Text = "My Details";
             this.DetailsTab.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // SaveDetailsButton
             // 
-            this.button5.Location = new System.Drawing.Point(365, 347);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 33);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "Save";
-            this.button5.UseVisualStyleBackColor = true;
+            this.SaveDetailsButton.Location = new System.Drawing.Point(365, 347);
+            this.SaveDetailsButton.Name = "SaveDetailsButton";
+            this.SaveDetailsButton.Size = new System.Drawing.Size(120, 33);
+            this.SaveDetailsButton.TabIndex = 29;
+            this.SaveDetailsButton.Text = "Save";
+            this.SaveDetailsButton.UseVisualStyleBackColor = true;
+            this.SaveDetailsButton.Click += new System.EventHandler(this.SaveDetailsButton_Click);
             // 
             // label7
             // 
@@ -172,55 +173,59 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "Pay Grade";
             // 
-            // comboBox1
+            // GenderSelect
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(394, 150);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 27;
+            this.GenderSelect.FormattingEnabled = true;
+            this.GenderSelect.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.GenderSelect.Location = new System.Drawing.Point(394, 150);
+            this.GenderSelect.Name = "GenderSelect";
+            this.GenderSelect.Size = new System.Drawing.Size(121, 23);
+            this.GenderSelect.TabIndex = 27;
             // 
-            // textBox6
+            // PayGradeTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(394, 294);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 26;
+            this.PayGradeTextBox.Location = new System.Drawing.Point(394, 294);
+            this.PayGradeTextBox.Name = "PayGradeTextBox";
+            this.PayGradeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.PayGradeTextBox.TabIndex = 26;
             // 
-            // textBox5
+            // DepartmentTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(394, 241);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 25;
+            this.DepartmentTextBox.Location = new System.Drawing.Point(394, 241);
+            this.DepartmentTextBox.Name = "DepartmentTextBox";
+            this.DepartmentTextBox.Size = new System.Drawing.Size(100, 23);
+            this.DepartmentTextBox.TabIndex = 25;
             // 
-            // textBox4
+            // AgeTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(394, 187);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 23);
-            this.textBox4.TabIndex = 24;
+            this.AgeTextBox.Location = new System.Drawing.Point(394, 187);
+            this.AgeTextBox.Name = "AgeTextBox";
+            this.AgeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.AgeTextBox.TabIndex = 24;
             // 
-            // textBox3
+            // LnameTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(394, 114);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 23;
+            this.LnameTextBox.Location = new System.Drawing.Point(394, 114);
+            this.LnameTextBox.Name = "LnameTextBox";
+            this.LnameTextBox.Size = new System.Drawing.Size(100, 23);
+            this.LnameTextBox.TabIndex = 23;
             // 
-            // textBox2
+            // FnameTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(394, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 22;
+            this.FnameTextBox.Location = new System.Drawing.Point(394, 74);
+            this.FnameTextBox.Name = "FnameTextBox";
+            this.FnameTextBox.Size = new System.Drawing.Size(100, 23);
+            this.FnameTextBox.TabIndex = 22;
             // 
-            // textBox1
+            // IDtextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(394, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 21;
+            this.IDtextBox.Location = new System.Drawing.Point(394, 29);
+            this.IDtextBox.Name = "IDtextBox";
+            this.IDtextBox.ReadOnly = true;
+            this.IDtextBox.Size = new System.Drawing.Size(100, 23);
+            this.IDtextBox.TabIndex = 21;
             // 
             // label6
             // 
@@ -278,12 +283,12 @@
             // 
             // attendanceTab
             // 
-            this.attendanceTab.Controls.Add(this.button3);
-            this.attendanceTab.Controls.Add(this.dateTimePicker2);
-            this.attendanceTab.Controls.Add(this.dateTimePicker1);
-            this.attendanceTab.Controls.Add(this.textBox10);
+            this.attendanceTab.Controls.Add(this.SaveAttendanceButton);
+            this.attendanceTab.Controls.Add(this.weeklyEndDate);
+            this.attendanceTab.Controls.Add(this.weeklyStartDate);
+            this.attendanceTab.Controls.Add(this.OvertimeHours);
             this.attendanceTab.Controls.Add(this.label11);
-            this.attendanceTab.Controls.Add(this.textBox7);
+            this.attendanceTab.Controls.Add(this.RegularHours);
             this.attendanceTab.Controls.Add(this.label8);
             this.attendanceTab.Controls.Add(this.label9);
             this.attendanceTab.Controls.Add(this.label10);
@@ -294,35 +299,38 @@
             this.attendanceTab.Text = "Weekly attendance";
             this.attendanceTab.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // SaveAttendanceButton
             // 
-            this.button3.Location = new System.Drawing.Point(292, 279);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 33);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
+            this.SaveAttendanceButton.Location = new System.Drawing.Point(292, 279);
+            this.SaveAttendanceButton.Name = "SaveAttendanceButton";
+            this.SaveAttendanceButton.Size = new System.Drawing.Size(120, 33);
+            this.SaveAttendanceButton.TabIndex = 34;
+            this.SaveAttendanceButton.Text = "Save";
+            this.SaveAttendanceButton.UseVisualStyleBackColor = true;
+            this.SaveAttendanceButton.Click += new System.EventHandler(this.SaveAttendanceButton_Click);
             // 
-            // dateTimePicker2
+            // weeklyEndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(292, 130);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker2.TabIndex = 33;
+            this.weeklyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.weeklyEndDate.Location = new System.Drawing.Point(292, 130);
+            this.weeklyEndDate.Name = "weeklyEndDate";
+            this.weeklyEndDate.Size = new System.Drawing.Size(200, 23);
+            this.weeklyEndDate.TabIndex = 33;
             // 
-            // dateTimePicker1
+            // weeklyStartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(292, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 32;
+            this.weeklyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.weeklyStartDate.Location = new System.Drawing.Point(292, 79);
+            this.weeklyStartDate.Name = "weeklyStartDate";
+            this.weeklyStartDate.Size = new System.Drawing.Size(200, 23);
+            this.weeklyStartDate.TabIndex = 32;
             // 
-            // textBox10
+            // OvertimeHours
             // 
-            this.textBox10.Location = new System.Drawing.Point(292, 211);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
-            this.textBox10.TabIndex = 31;
+            this.OvertimeHours.Location = new System.Drawing.Point(292, 211);
+            this.OvertimeHours.Name = "OvertimeHours";
+            this.OvertimeHours.Size = new System.Drawing.Size(100, 23);
+            this.OvertimeHours.TabIndex = 31;
             // 
             // label11
             // 
@@ -333,12 +341,12 @@
             this.label11.TabIndex = 30;
             this.label11.Text = "Overtime hours worked:";
             // 
-            // textBox7
+            // RegularHours
             // 
-            this.textBox7.Location = new System.Drawing.Point(292, 173);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 23);
-            this.textBox7.TabIndex = 29;
+            this.RegularHours.Location = new System.Drawing.Point(292, 173);
+            this.RegularHours.Name = "RegularHours";
+            this.RegularHours.Size = new System.Drawing.Size(100, 23);
+            this.RegularHours.TabIndex = 29;
             // 
             // label8
             // 
@@ -369,11 +377,11 @@
             // 
             // LeaveTab
             // 
-            this.LeaveTab.Controls.Add(this.button6);
-            this.LeaveTab.Controls.Add(this.textBox8);
+            this.LeaveTab.Controls.Add(this.SaveLeavebutton);
+            this.LeaveTab.Controls.Add(this.ReasontextBox);
             this.LeaveTab.Controls.Add(this.label14);
-            this.LeaveTab.Controls.Add(this.dateTimePicker3);
-            this.LeaveTab.Controls.Add(this.dateTimePicker4);
+            this.LeaveTab.Controls.Add(this.endDate);
+            this.LeaveTab.Controls.Add(this.startDate);
             this.LeaveTab.Controls.Add(this.label12);
             this.LeaveTab.Controls.Add(this.label13);
             this.LeaveTab.Location = new System.Drawing.Point(4, 24);
@@ -383,44 +391,48 @@
             this.LeaveTab.Text = "Request Leave";
             this.LeaveTab.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // SaveLeavebutton
             // 
-            this.button6.Location = new System.Drawing.Point(279, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 33);
-            this.button6.TabIndex = 40;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
+            this.SaveLeavebutton.Location = new System.Drawing.Point(279, 300);
+            this.SaveLeavebutton.Name = "SaveLeavebutton";
+            this.SaveLeavebutton.Size = new System.Drawing.Size(120, 33);
+            this.SaveLeavebutton.TabIndex = 40;
+            this.SaveLeavebutton.Text = "Save";
+            this.SaveLeavebutton.UseVisualStyleBackColor = true;
+            this.SaveLeavebutton.Click += new System.EventHandler(this.SaveLeavebutton_Click);
             // 
-            // textBox8
+            // ReasontextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(279, 169);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 39;
+            this.ReasontextBox.Location = new System.Drawing.Point(279, 169);
+            this.ReasontextBox.Multiline = true;
+            this.ReasontextBox.Name = "ReasontextBox";
+            this.ReasontextBox.Size = new System.Drawing.Size(305, 94);
+            this.ReasontextBox.TabIndex = 39;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(101, 172);
+            this.label14.Location = new System.Drawing.Point(101, 199);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(135, 15);
             this.label14.TabIndex = 38;
             this.label14.Text = "Reason for leave request";
             // 
-            // dateTimePicker3
+            // endDate
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(279, 119);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker3.TabIndex = 37;
+            this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.endDate.Location = new System.Drawing.Point(279, 119);
+            this.endDate.Name = "endDate";
+            this.endDate.Size = new System.Drawing.Size(200, 23);
+            this.endDate.TabIndex = 37;
             // 
-            // dateTimePicker4
+            // startDate
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(279, 68);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker4.TabIndex = 36;
+            this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.startDate.Location = new System.Drawing.Point(279, 68);
+            this.startDate.Name = "startDate";
+            this.startDate.Size = new System.Drawing.Size(200, 23);
+            this.startDate.TabIndex = 36;
             // 
             // label12
             // 
@@ -468,15 +480,15 @@
         private Button AddAttendancebutton;
         private Button UpdteDetailsbutton;
         private TabPage DetailsTab;
-        private Button button5;
+        private Button SaveDetailsButton;
         private Label label7;
-        private ComboBox comboBox1;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ComboBox GenderSelect;
+        private TextBox PayGradeTextBox;
+        private TextBox DepartmentTextBox;
+        private TextBox AgeTextBox;
+        private TextBox LnameTextBox;
+        private TextBox FnameTextBox;
+        private TextBox IDtextBox;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -485,20 +497,20 @@
         private Label label1;
         private TabPage attendanceTab;
         private TabPage LeaveTab;
-        private TextBox textBox7;
+        private TextBox RegularHours;
         private Label label8;
         private Label label9;
         private Label label10;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox10;
+        private DateTimePicker weeklyEndDate;
+        private DateTimePicker weeklyStartDate;
+        private TextBox OvertimeHours;
         private Label label11;
-        private Button button3;
-        private Button button6;
-        private TextBox textBox8;
+        private Button SaveAttendanceButton;
+        private Button SaveLeavebutton;
+        private TextBox ReasontextBox;
         private Label label14;
-        private DateTimePicker dateTimePicker3;
-        private DateTimePicker dateTimePicker4;
+        private DateTimePicker endDate;
+        private DateTimePicker startDate;
         private Label label12;
         private Label label13;
     }

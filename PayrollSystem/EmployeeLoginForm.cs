@@ -37,7 +37,7 @@ namespace PayrollSystem
                 {
                     conn.Open();
                     using var command = conn.CreateCommand();
-                    command.CommandText = @"SELECT username FROM employee WHERE username = @username AND USERPASSword=PASSWORD(@user_pass);";
+                    command.CommandText = @"SELECT username, employeeID FROM employee WHERE username = @username AND USERPASSword=PASSWORD(@user_pass);";
                     command.Parameters.AddWithValue("username", username);
                     command.Parameters.AddWithValue("user_pass", password);
 
@@ -46,7 +46,8 @@ namespace PayrollSystem
 
                         while (reader.Read())
                         {
-                            string user_name = (string)reader["USERNAME"];
+                            string user_name = reader.GetString(0);
+                            int employee_id = reader.GetInt32(1);
 
                             if (user_name == username)
                             {
@@ -55,6 +56,7 @@ namespace PayrollSystem
                                 MessageBox.Show(success);
                                 Close();
                                 EmployeeDashboard dashboard = new();
+                                dashboard.EmployeeID = employee_id;
                                 dashboard.Show();
                                 return;
 

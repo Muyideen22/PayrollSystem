@@ -566,13 +566,11 @@
         private TextBox EmployeeAgetextBox;
         private TextBox EmployeeLnametextBox;
         private TextBox EmployeeFnametextBox;
-        private TextBox EmployeeIDtextBox;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label1;
         private ComboBox EmployeeGenderComboBox;
         private Button SaveEmployeeButton;
         private Label label7;

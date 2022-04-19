@@ -351,6 +351,8 @@ namespace PayrollSystem
 
         private void ViewDepartmentButton_Click(object sender, EventArgs e)
         {
+            this.homeTab.SelectedTab = this.ViewDepartmentTab;
+
             List<Department> departments = getDepartments();
             DepartmentlistView.Items.Clear();
             DepartmentlistView.Columns.Clear();

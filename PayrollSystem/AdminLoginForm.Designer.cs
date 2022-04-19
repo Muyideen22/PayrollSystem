@@ -1,6 +1,6 @@
 ﻿namespace PayrollSystem
 {
-    partial class LoginForm
+    partial class AdminLoginForm
     {
         /// <summary>
         ///  Required designer variable.

@@ -1,15 +1,22 @@
-//using MySqlConnector;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace PayrollSystem
 {
-    public partial class LoginForm : Form
+    public partial class EmployeeLoginForm : Form
     {
-        public LoginForm()
+        public EmployeeLoginForm()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             string username = userName.Text;
             string password = this.password.Text;
@@ -20,17 +27,17 @@ namespace PayrollSystem
                 return;
             }
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new ();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new();
             if (databaseConnectionWrapper != null)
             {
-                
-            
+
+
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
                 try
                 {
-                    conn.Open();        
+                    conn.Open();
                     using var command = conn.CreateCommand();
-                    command.CommandText = @"SELECT * FROM admin WHERE username = @username AND USERPASSword=PASSWORD(@user_pass);";
+                    command.CommandText = @"SELECT * FROM users WHERE username = @username AND USERPASSword=PASSWORD(@user_pass);";
                     command.Parameters.AddWithValue("username", username);
                     command.Parameters.AddWithValue("user_pass", password);
 
@@ -48,8 +55,8 @@ namespace PayrollSystem
                                 string success = $"Logged in as {user_name}";
                                 MessageBox.Show(success);
                                 //MessageBox.Show("Correct credentials. Logged in!");
-                                Hide();
-                                Dashboard dashboard = new();
+                                Close();
+                                EmployeeDashboard dashboard = new();
                                 dashboard.Show();
                                 return;
 
@@ -74,5 +81,6 @@ namespace PayrollSystem
 
 
         }
+
     }
 }

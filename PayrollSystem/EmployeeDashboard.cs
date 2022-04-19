@@ -16,5 +16,22 @@ namespace PayrollSystem
         {
             InitializeComponent();
         }
+
+        private void UpdteDetailsbutton_Click(object sender, EventArgs e)
+        {
+            this.EmployeeHomeTab.SelectedTab = this.DetailsTab;
+        }
+
+        private void AddAttendancebutton_Click(object sender, EventArgs e)
+        {
+            this.EmployeeHomeTab.SelectedTab = this.attendanceTab;
+
+        }
+
+        private void LeaveButton_Click(object sender, EventArgs e)
+        {
+            this.EmployeeHomeTab.SelectedTab = this.LeaveTab;
+
+        }
     }
 }

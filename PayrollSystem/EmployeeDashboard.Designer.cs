@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.EmployeeHomeTab = new System.Windows.Forms.TabControl();
             this.HomeTab = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.LeaveButton = new System.Windows.Forms.Button();
+            this.AddAttendancebutton = new System.Windows.Forms.Button();
+            this.UpdteDetailsbutton = new System.Windows.Forms.Button();
             this.DetailsTab = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,47 +50,47 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.attendanceTab = new System.Windows.Forms.TabPage();
-            this.LeaveTab = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.LeaveTab = new System.Windows.Forms.TabPage();
+            this.button6 = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.EmployeeHomeTab.SuspendLayout();
             this.HomeTab.SuspendLayout();
             this.DetailsTab.SuspendLayout();
             this.attendanceTab.SuspendLayout();
             this.LeaveTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // EmployeeHomeTab
             // 
-            this.tabControl1.Controls.Add(this.HomeTab);
-            this.tabControl1.Controls.Add(this.DetailsTab);
-            this.tabControl1.Controls.Add(this.attendanceTab);
-            this.tabControl1.Controls.Add(this.LeaveTab);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 436);
-            this.tabControl1.TabIndex = 0;
+            this.EmployeeHomeTab.Controls.Add(this.HomeTab);
+            this.EmployeeHomeTab.Controls.Add(this.DetailsTab);
+            this.EmployeeHomeTab.Controls.Add(this.attendanceTab);
+            this.EmployeeHomeTab.Controls.Add(this.LeaveTab);
+            this.EmployeeHomeTab.Location = new System.Drawing.Point(12, 12);
+            this.EmployeeHomeTab.Name = "EmployeeHomeTab";
+            this.EmployeeHomeTab.SelectedIndex = 0;
+            this.EmployeeHomeTab.Size = new System.Drawing.Size(776, 436);
+            this.EmployeeHomeTab.TabIndex = 0;
             // 
             // HomeTab
             // 
-            this.HomeTab.Controls.Add(this.button4);
-            this.HomeTab.Controls.Add(this.button2);
-            this.HomeTab.Controls.Add(this.button1);
+            this.HomeTab.Controls.Add(this.LeaveButton);
+            this.HomeTab.Controls.Add(this.AddAttendancebutton);
+            this.HomeTab.Controls.Add(this.UpdteDetailsbutton);
             this.HomeTab.Location = new System.Drawing.Point(4, 24);
             this.HomeTab.Name = "HomeTab";
             this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
@@ -99,32 +99,35 @@
             this.HomeTab.Text = "Home";
             this.HomeTab.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // LeaveButton
             // 
-            this.button4.Location = new System.Drawing.Point(147, 259);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 43);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Request Leave";
-            this.button4.UseVisualStyleBackColor = true;
+            this.LeaveButton.Location = new System.Drawing.Point(147, 259);
+            this.LeaveButton.Name = "LeaveButton";
+            this.LeaveButton.Size = new System.Drawing.Size(155, 43);
+            this.LeaveButton.TabIndex = 3;
+            this.LeaveButton.Text = "Request Leave";
+            this.LeaveButton.UseVisualStyleBackColor = true;
+            this.LeaveButton.Click += new System.EventHandler(this.LeaveButton_Click);
             // 
-            // button2
+            // AddAttendancebutton
             // 
-            this.button2.Location = new System.Drawing.Point(147, 162);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 43);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add attendance";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddAttendancebutton.Location = new System.Drawing.Point(147, 162);
+            this.AddAttendancebutton.Name = "AddAttendancebutton";
+            this.AddAttendancebutton.Size = new System.Drawing.Size(155, 43);
+            this.AddAttendancebutton.TabIndex = 1;
+            this.AddAttendancebutton.Text = "Add attendance";
+            this.AddAttendancebutton.UseVisualStyleBackColor = true;
+            this.AddAttendancebutton.Click += new System.EventHandler(this.AddAttendancebutton_Click);
             // 
-            // button1
+            // UpdteDetailsbutton
             // 
-            this.button1.Location = new System.Drawing.Point(147, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Update My Details";
-            this.button1.UseVisualStyleBackColor = true;
+            this.UpdteDetailsbutton.Location = new System.Drawing.Point(147, 68);
+            this.UpdteDetailsbutton.Name = "UpdteDetailsbutton";
+            this.UpdteDetailsbutton.Size = new System.Drawing.Size(155, 53);
+            this.UpdteDetailsbutton.TabIndex = 0;
+            this.UpdteDetailsbutton.Text = "Update My Details";
+            this.UpdteDetailsbutton.UseVisualStyleBackColor = true;
+            this.UpdteDetailsbutton.Click += new System.EventHandler(this.UpdteDetailsbutton_Click);
             // 
             // DetailsTab
             // 
@@ -291,21 +294,44 @@
             this.attendanceTab.Text = "Weekly attendance";
             this.attendanceTab.UseVisualStyleBackColor = true;
             // 
-            // LeaveTab
+            // button3
             // 
-            this.LeaveTab.Controls.Add(this.button6);
-            this.LeaveTab.Controls.Add(this.textBox8);
-            this.LeaveTab.Controls.Add(this.label14);
-            this.LeaveTab.Controls.Add(this.dateTimePicker3);
-            this.LeaveTab.Controls.Add(this.dateTimePicker4);
-            this.LeaveTab.Controls.Add(this.label12);
-            this.LeaveTab.Controls.Add(this.label13);
-            this.LeaveTab.Location = new System.Drawing.Point(4, 24);
-            this.LeaveTab.Name = "LeaveTab";
-            this.LeaveTab.Size = new System.Drawing.Size(768, 408);
-            this.LeaveTab.TabIndex = 3;
-            this.LeaveTab.Text = "Request Leave";
-            this.LeaveTab.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(292, 279);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(120, 33);
+            this.button3.TabIndex = 34;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(292, 130);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker2.TabIndex = 33;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(292, 79);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 32;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(292, 211);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 23);
+            this.textBox10.TabIndex = 31;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(114, 214);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(134, 15);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Overtime hours worked:";
             // 
             // textBox7
             // 
@@ -341,35 +367,46 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Start Date";
             // 
-            // textBox10
+            // LeaveTab
             // 
-            this.textBox10.Location = new System.Drawing.Point(292, 211);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 23);
-            this.textBox10.TabIndex = 31;
+            this.LeaveTab.Controls.Add(this.button6);
+            this.LeaveTab.Controls.Add(this.textBox8);
+            this.LeaveTab.Controls.Add(this.label14);
+            this.LeaveTab.Controls.Add(this.dateTimePicker3);
+            this.LeaveTab.Controls.Add(this.dateTimePicker4);
+            this.LeaveTab.Controls.Add(this.label12);
+            this.LeaveTab.Controls.Add(this.label13);
+            this.LeaveTab.Location = new System.Drawing.Point(4, 24);
+            this.LeaveTab.Name = "LeaveTab";
+            this.LeaveTab.Size = new System.Drawing.Size(768, 408);
+            this.LeaveTab.TabIndex = 3;
+            this.LeaveTab.Text = "Request Leave";
+            this.LeaveTab.UseVisualStyleBackColor = true;
             // 
-            // label11
+            // button6
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(114, 214);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(134, 15);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Overtime hours worked:";
+            this.button6.Location = new System.Drawing.Point(279, 237);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(120, 33);
+            this.button6.TabIndex = 40;
+            this.button6.Text = "Save";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // textBox8
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(292, 79);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 32;
+            this.textBox8.Location = new System.Drawing.Point(279, 169);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 23);
+            this.textBox8.TabIndex = 39;
             // 
-            // dateTimePicker2
+            // label14
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(292, 130);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker2.TabIndex = 33;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(101, 172);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(135, 15);
+            this.label14.TabIndex = 38;
+            this.label14.Text = "Reason for leave request";
             // 
             // dateTimePicker3
             // 
@@ -403,49 +440,15 @@
             this.label13.TabIndex = 34;
             this.label13.Text = "Start Date";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(292, 279);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 33);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(279, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 33);
-            this.button6.TabIndex = 40;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(279, 169);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 23);
-            this.textBox8.TabIndex = 39;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(101, 172);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 15);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Reason for leave request";
-            // 
             // EmployeeDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.EmployeeHomeTab);
             this.Name = "EmployeeDashboard";
             this.Text = "EmployeeDashboard";
-            this.tabControl1.ResumeLayout(false);
+            this.EmployeeHomeTab.ResumeLayout(false);
             this.HomeTab.ResumeLayout(false);
             this.DetailsTab.ResumeLayout(false);
             this.DetailsTab.PerformLayout();
@@ -459,11 +462,11 @@
 
         #endregion
 
-        private TabControl tabControl1;
+        private TabControl EmployeeHomeTab;
         private TabPage HomeTab;
-        private Button button4;
-        private Button button2;
-        private Button button1;
+        private Button LeaveButton;
+        private Button AddAttendancebutton;
+        private Button UpdteDetailsbutton;
         private TabPage DetailsTab;
         private Button button5;
         private Label label7;

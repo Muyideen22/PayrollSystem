@@ -106,7 +106,7 @@ namespace PayrollSystem
                 {
                     conn.Open();
                     using var command = conn.CreateCommand();
-                    command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, DEPARTMENTID, GRADEID) VALUES (@fname, @lname, @age, @gender, @deptid, @grade);";
+                    command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, DEPARTMENTID, GRADEID, USERNAME, USERPASSWORD) VALUES (@fname, @lname, @age, @gender, @deptid, @grade, @username, PASSWORD(@userpass));";
                     command.Parameters.AddWithValue("@fname", fname);
                     command.Parameters.AddWithValue("@lname", lname);
                     command.Parameters.AddWithValue("@age", age);
@@ -115,6 +115,10 @@ namespace PayrollSystem
                     command.Parameters.AddWithValue("@deptid", 1);
                     command.Parameters.AddWithValue("@grade", 1);
 
+                    string username = $"{fname}{lname}";
+                    
+                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@userpass", "password");
                     command.Prepare();
 
                     command.ExecuteNonQuery();

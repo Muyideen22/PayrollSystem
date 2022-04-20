@@ -1,17 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-
-namespace PayrollTests
+namespace PayrollTest
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
-        {
-        }
-        public void TestMethod2()
         {
         }
     }

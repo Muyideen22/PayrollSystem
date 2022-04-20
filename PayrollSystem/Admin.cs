@@ -5,13 +5,12 @@
         public string AdminId { get; set; }
         public string AdminName { get; set; }
         public string Password { get; set; }
+        public Admin(string id, string name, string pass)
+        {
+            AdminId = id;
+            AdminName = name;
+            Password = pass;
+        }
 
-        public void addEmployee() { }
-        public void removeEmployee() { }
-        public void addPayGrade() { }
-        public void removePayGrade() { }
-        public void generatePayroll() { }
-        public void approveLeaveRequests() { }
-        public void approveAttendance() { }
     }
 }

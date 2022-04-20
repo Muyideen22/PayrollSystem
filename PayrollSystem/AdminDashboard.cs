@@ -24,7 +24,6 @@ namespace PayrollSystem
 
         private void ViewEmployeesbutton_Click(object sender, EventArgs e)
         {
-
             homeTab.SelectedTab = ViewEmployeesTab;
             PopulateEmployeesListView();
         }
@@ -37,7 +36,7 @@ namespace PayrollSystem
             foreach (string a in new[] { "ID", "First Name", "Last Name", "Gender", "Age",
                                     "Department", "Pay Grade"})
             {
-                listViewEmployees.Columns.Add(a, 70);
+                listViewEmployees.Columns.Add(a, 100);
 
             }
             foreach (Employee employee in employees)
@@ -52,8 +51,7 @@ namespace PayrollSystem
                             employee.Age.ToString(),
                             employee.Department.ToString(),
                             employee.Grade.ToString()
-                        }
-                        )
+                        })
                     );
             }
         }
@@ -95,8 +93,7 @@ namespace PayrollSystem
         {
 
             foreach (TextBox a in new[]{
-                EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox,
-                EmployeeDepartmentTextbox, EmployeePaygradeTextBox})
+                EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox})
             {
                 if (a.Text == "")
                 {
@@ -109,9 +106,8 @@ namespace PayrollSystem
             string lname = EmployeeLnametextBox.Text;
             string gender = EmployeeGenderComboBox.Text;
             int age = int.Parse(EmployeeAgetextBox.Text);
-            int department = int.Parse(EmployeeDepartmentTextbox.Text);
-            int payGrade = int.Parse(EmployeePaygradeTextBox.Text);
-
+            int department = ((KeyValuePair<string, int>)DepartmentsComboBox.SelectedItem).Value;
+            int payGrade = ((KeyValuePair<string, int>)PayGradecomboBox.SelectedItem).Value;
             try
             {
                 MySqlCommand command = new();
@@ -133,8 +129,7 @@ namespace PayrollSystem
                 MessageBox.Show("New employee has been added!");
                 homeTab.SelectedTab = Home_Tab;
                 foreach (TextBox a in new[]{
-                        EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox,
-                        EmployeeDepartmentTextbox, EmployeePaygradeTextBox})
+                        EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox})
                 {
                     a.Text = "";
                 }
@@ -354,5 +349,37 @@ namespace PayrollSystem
 
         }
 
+        private void LoadDepartments(object sender, EventArgs e)
+        {
+            List<Department> departments = GetDepartments();
+            this.DepartmentsComboBox.Items.Clear();
+            this.DepartmentsComboBox.DisplayMember = "Key";
+            this.DepartmentsComboBox.ValueMember = "Value";
+            Dictionary<string, int> comboSource = new();
+
+            foreach (Department department in departments)
+            {
+                comboSource.Add(department.DepartmentName, department.DepartmentID);
+            }
+            DepartmentsComboBox.DataSource = new BindingSource(comboSource, null);
+
+        }
+
+        private void LoadPayGrades(object sender, EventArgs e)
+        {
+            this.PayGradecomboBox.Items.Clear();
+            List<PayGrade> paygrades = GetPaygrades();
+            this.PayGradecomboBox.DisplayMember = "Key";
+            this.PayGradecomboBox.ValueMember = "Value";
+            Dictionary<string, int> comboSource = new();
+
+            foreach (PayGrade grade in paygrades)
+            {
+                comboSource.Add(grade.GradeName, grade.GradeID);
+
+            }
+            PayGradecomboBox.DataSource = new BindingSource(comboSource, null);
+
+        }
     }
 }

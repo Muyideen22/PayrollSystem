@@ -21,5 +21,18 @@
             Grade = grade;
 
         }
+
+        new public string[] ToString()
+        {
+            return new []{
+                   EmployeeID.ToString(),
+                   FName,
+                   LName,
+                   Gender,
+                   Age.ToString(),
+                   Department.ToString(),
+                   Grade.ToString()
+            };
+        }
     }
 }

@@ -39,11 +39,11 @@
             this.addPaygradeButton = new System.Windows.Forms.Button();
             this.addEmployeebutton = new System.Windows.Forms.Button();
             this.AddEmployeeTab = new System.Windows.Forms.TabPage();
+            this.PayGradecomboBox = new System.Windows.Forms.ComboBox();
+            this.DepartmentsComboBox = new System.Windows.Forms.ComboBox();
             this.SaveEmployeeButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.EmployeeGenderComboBox = new System.Windows.Forms.ComboBox();
-            this.EmployeePaygradeTextBox = new System.Windows.Forms.TextBox();
-            this.EmployeeDepartmentTextbox = new System.Windows.Forms.TextBox();
             this.EmployeeAgetextBox = new System.Windows.Forms.TextBox();
             this.EmployeeLnametextBox = new System.Windows.Forms.TextBox();
             this.EmployeeFnametextBox = new System.Windows.Forms.TextBox();
@@ -195,11 +195,11 @@
             // 
             // AddEmployeeTab
             // 
+            this.AddEmployeeTab.Controls.Add(this.PayGradecomboBox);
+            this.AddEmployeeTab.Controls.Add(this.DepartmentsComboBox);
             this.AddEmployeeTab.Controls.Add(this.SaveEmployeeButton);
             this.AddEmployeeTab.Controls.Add(this.label7);
             this.AddEmployeeTab.Controls.Add(this.EmployeeGenderComboBox);
-            this.AddEmployeeTab.Controls.Add(this.EmployeePaygradeTextBox);
-            this.AddEmployeeTab.Controls.Add(this.EmployeeDepartmentTextbox);
             this.AddEmployeeTab.Controls.Add(this.EmployeeAgetextBox);
             this.AddEmployeeTab.Controls.Add(this.EmployeeLnametextBox);
             this.AddEmployeeTab.Controls.Add(this.EmployeeFnametextBox);
@@ -215,6 +215,30 @@
             this.AddEmployeeTab.TabIndex = 1;
             this.AddEmployeeTab.Text = "Add Employee";
             this.AddEmployeeTab.UseVisualStyleBackColor = true;
+            // 
+            // PayGradecomboBox
+            // 
+            this.PayGradecomboBox.FormattingEnabled = true;
+            this.PayGradecomboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.PayGradecomboBox.Location = new System.Drawing.Point(234, 271);
+            this.PayGradecomboBox.Name = "PayGradecomboBox";
+            this.PayGradecomboBox.Size = new System.Drawing.Size(175, 23);
+            this.PayGradecomboBox.TabIndex = 16;
+            this.PayGradecomboBox.Click += new System.EventHandler(this.LoadPayGrades);
+            // 
+            // DepartmentsComboBox
+            // 
+            this.DepartmentsComboBox.FormattingEnabled = true;
+            this.DepartmentsComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.DepartmentsComboBox.Location = new System.Drawing.Point(234, 221);
+            this.DepartmentsComboBox.Name = "DepartmentsComboBox";
+            this.DepartmentsComboBox.Size = new System.Drawing.Size(175, 23);
+            this.DepartmentsComboBox.TabIndex = 15;
+            this.DepartmentsComboBox.Click += new System.EventHandler(this.LoadDepartments);
             // 
             // SaveEmployeeButton
             // 
@@ -245,20 +269,6 @@
             this.EmployeeGenderComboBox.Name = "EmployeeGenderComboBox";
             this.EmployeeGenderComboBox.Size = new System.Drawing.Size(121, 23);
             this.EmployeeGenderComboBox.TabIndex = 12;
-            // 
-            // EmployeePaygradeTextBox
-            // 
-            this.EmployeePaygradeTextBox.Location = new System.Drawing.Point(234, 271);
-            this.EmployeePaygradeTextBox.Name = "EmployeePaygradeTextBox";
-            this.EmployeePaygradeTextBox.Size = new System.Drawing.Size(100, 23);
-            this.EmployeePaygradeTextBox.TabIndex = 11;
-            // 
-            // EmployeeDepartmentTextbox
-            // 
-            this.EmployeeDepartmentTextbox.Location = new System.Drawing.Point(234, 218);
-            this.EmployeeDepartmentTextbox.Name = "EmployeeDepartmentTextbox";
-            this.EmployeeDepartmentTextbox.Size = new System.Drawing.Size(100, 23);
-            this.EmployeeDepartmentTextbox.TabIndex = 10;
             // 
             // EmployeeAgetextBox
             // 
@@ -353,7 +363,6 @@
             this.listViewEmployees.Location = new System.Drawing.Point(3, 3);
             this.listViewEmployees.Name = "listViewEmployees";
             this.listViewEmployees.Size = new System.Drawing.Size(762, 407);
-            this.listViewEmployees.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewEmployees.TabIndex = 1;
             this.listViewEmployees.UseCompatibleStateImageBehavior = false;
             this.listViewEmployees.View = System.Windows.Forms.View.Details;
@@ -562,8 +571,6 @@
         private Button addEmployeebutton;
         private TabPage AddEmployeeTab;
         private TabPage ViewEmployeesTab;
-        private TextBox EmployeePaygradeTextBox;
-        private TextBox EmployeeDepartmentTextbox;
         private TextBox EmployeeAgetextBox;
         private TextBox EmployeeLnametextBox;
         private TextBox EmployeeFnametextBox;
@@ -604,5 +611,7 @@
         private Button ViewDepartmentButton;
         private Button AddDepartmentbutton;
         private ListView PayGradeslistView;
+        private ComboBox PayGradecomboBox;
+        private ComboBox DepartmentsComboBox;
     }
 }

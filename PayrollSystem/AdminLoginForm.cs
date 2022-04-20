@@ -49,7 +49,7 @@ namespace PayrollSystem
                                 MessageBox.Show(success);
                                 //MessageBox.Show("Correct credentials. Logged in!");
                                 Close();
-                                Dashboard dashboard = new();
+                                AdminDashboard dashboard = new();
                                 dashboard.Show();
                                 return;
 

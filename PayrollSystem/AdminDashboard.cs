@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 namespace PayrollSystem
 {
-    public partial class Dashboard : Form
+    public partial class AdminDashboard : Form
     {
-        public Dashboard()
+        public AdminDashboard()
         {
             InitializeComponent();
         }

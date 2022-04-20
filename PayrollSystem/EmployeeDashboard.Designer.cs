@@ -81,30 +81,33 @@
             this.EmployeeHomeTab.Controls.Add(this.DetailsTab);
             this.EmployeeHomeTab.Controls.Add(this.attendanceTab);
             this.EmployeeHomeTab.Controls.Add(this.LeaveTab);
-            this.EmployeeHomeTab.Location = new System.Drawing.Point(12, 12);
+            this.EmployeeHomeTab.Location = new System.Drawing.Point(16, 14);
+            this.EmployeeHomeTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmployeeHomeTab.Name = "EmployeeHomeTab";
             this.EmployeeHomeTab.SelectedIndex = 0;
-            this.EmployeeHomeTab.Size = new System.Drawing.Size(776, 436);
+            this.EmployeeHomeTab.Size = new System.Drawing.Size(998, 523);
             this.EmployeeHomeTab.TabIndex = 0;
             // 
             // HomeTab
             // 
+            this.HomeTab.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.HomeTab.Controls.Add(this.LeaveButton);
             this.HomeTab.Controls.Add(this.AddAttendancebutton);
             this.HomeTab.Controls.Add(this.UpdteDetailsbutton);
-            this.HomeTab.Location = new System.Drawing.Point(4, 24);
+            this.HomeTab.Location = new System.Drawing.Point(4, 27);
+            this.HomeTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.HomeTab.Name = "HomeTab";
-            this.HomeTab.Padding = new System.Windows.Forms.Padding(3);
-            this.HomeTab.Size = new System.Drawing.Size(768, 408);
+            this.HomeTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HomeTab.Size = new System.Drawing.Size(990, 492);
             this.HomeTab.TabIndex = 0;
             this.HomeTab.Text = "Home";
-            this.HomeTab.UseVisualStyleBackColor = true;
             // 
             // LeaveButton
             // 
-            this.LeaveButton.Location = new System.Drawing.Point(147, 259);
+            this.LeaveButton.Location = new System.Drawing.Point(189, 311);
+            this.LeaveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LeaveButton.Name = "LeaveButton";
-            this.LeaveButton.Size = new System.Drawing.Size(155, 43);
+            this.LeaveButton.Size = new System.Drawing.Size(199, 52);
             this.LeaveButton.TabIndex = 3;
             this.LeaveButton.Text = "Request Leave";
             this.LeaveButton.UseVisualStyleBackColor = true;
@@ -112,9 +115,10 @@
             // 
             // AddAttendancebutton
             // 
-            this.AddAttendancebutton.Location = new System.Drawing.Point(147, 162);
+            this.AddAttendancebutton.Location = new System.Drawing.Point(189, 194);
+            this.AddAttendancebutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AddAttendancebutton.Name = "AddAttendancebutton";
-            this.AddAttendancebutton.Size = new System.Drawing.Size(155, 43);
+            this.AddAttendancebutton.Size = new System.Drawing.Size(199, 52);
             this.AddAttendancebutton.TabIndex = 1;
             this.AddAttendancebutton.Text = "Add attendance";
             this.AddAttendancebutton.UseVisualStyleBackColor = true;
@@ -122,9 +126,10 @@
             // 
             // UpdteDetailsbutton
             // 
-            this.UpdteDetailsbutton.Location = new System.Drawing.Point(147, 68);
+            this.UpdteDetailsbutton.Location = new System.Drawing.Point(189, 82);
+            this.UpdteDetailsbutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpdteDetailsbutton.Name = "UpdteDetailsbutton";
-            this.UpdteDetailsbutton.Size = new System.Drawing.Size(155, 53);
+            this.UpdteDetailsbutton.Size = new System.Drawing.Size(199, 64);
             this.UpdteDetailsbutton.TabIndex = 0;
             this.UpdteDetailsbutton.Text = "Update My Details";
             this.UpdteDetailsbutton.UseVisualStyleBackColor = true;
@@ -132,6 +137,7 @@
             // 
             // DetailsTab
             // 
+            this.DetailsTab.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.DetailsTab.Controls.Add(this.SaveDetailsButton);
             this.DetailsTab.Controls.Add(this.label7);
             this.DetailsTab.Controls.Add(this.GenderSelect);
@@ -147,19 +153,20 @@
             this.DetailsTab.Controls.Add(this.label3);
             this.DetailsTab.Controls.Add(this.label2);
             this.DetailsTab.Controls.Add(this.label1);
-            this.DetailsTab.Location = new System.Drawing.Point(4, 24);
+            this.DetailsTab.Location = new System.Drawing.Point(4, 27);
+            this.DetailsTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DetailsTab.Name = "DetailsTab";
-            this.DetailsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DetailsTab.Size = new System.Drawing.Size(768, 408);
+            this.DetailsTab.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DetailsTab.Size = new System.Drawing.Size(990, 492);
             this.DetailsTab.TabIndex = 1;
             this.DetailsTab.Text = "My Details";
-            this.DetailsTab.UseVisualStyleBackColor = true;
             // 
             // SaveDetailsButton
             // 
-            this.SaveDetailsButton.Location = new System.Drawing.Point(365, 347);
+            this.SaveDetailsButton.Location = new System.Drawing.Point(469, 416);
+            this.SaveDetailsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveDetailsButton.Name = "SaveDetailsButton";
-            this.SaveDetailsButton.Size = new System.Drawing.Size(120, 33);
+            this.SaveDetailsButton.Size = new System.Drawing.Size(154, 40);
             this.SaveDetailsButton.TabIndex = 29;
             this.SaveDetailsButton.Text = "Save";
             this.SaveDetailsButton.UseVisualStyleBackColor = true;
@@ -168,9 +175,9 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(254, 302);
+            this.label7.Location = new System.Drawing.Point(326, 362);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 15);
+            this.label7.Size = new System.Drawing.Size(83, 18);
             this.label7.TabIndex = 28;
             this.label7.Text = "Pay Grade";
             // 
@@ -180,110 +187,118 @@
             this.GenderSelect.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.GenderSelect.Location = new System.Drawing.Point(394, 150);
+            this.GenderSelect.Location = new System.Drawing.Point(506, 180);
+            this.GenderSelect.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GenderSelect.Name = "GenderSelect";
-            this.GenderSelect.Size = new System.Drawing.Size(121, 23);
+            this.GenderSelect.Size = new System.Drawing.Size(155, 26);
             this.GenderSelect.TabIndex = 27;
             // 
             // PayGradeTextBox
             // 
-            this.PayGradeTextBox.Location = new System.Drawing.Point(394, 294);
+            this.PayGradeTextBox.Location = new System.Drawing.Point(506, 353);
+            this.PayGradeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.PayGradeTextBox.Name = "PayGradeTextBox";
-            this.PayGradeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.PayGradeTextBox.Size = new System.Drawing.Size(128, 26);
             this.PayGradeTextBox.TabIndex = 26;
             // 
             // DepartmentTextBox
             // 
-            this.DepartmentTextBox.Location = new System.Drawing.Point(394, 241);
+            this.DepartmentTextBox.Location = new System.Drawing.Point(506, 289);
+            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DepartmentTextBox.Name = "DepartmentTextBox";
-            this.DepartmentTextBox.Size = new System.Drawing.Size(100, 23);
+            this.DepartmentTextBox.Size = new System.Drawing.Size(128, 26);
             this.DepartmentTextBox.TabIndex = 25;
             // 
             // AgeTextBox
             // 
-            this.AgeTextBox.Location = new System.Drawing.Point(394, 187);
+            this.AgeTextBox.Location = new System.Drawing.Point(506, 224);
+            this.AgeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AgeTextBox.Name = "AgeTextBox";
-            this.AgeTextBox.Size = new System.Drawing.Size(100, 23);
+            this.AgeTextBox.Size = new System.Drawing.Size(128, 26);
             this.AgeTextBox.TabIndex = 24;
             // 
             // LnameTextBox
             // 
-            this.LnameTextBox.Location = new System.Drawing.Point(394, 114);
+            this.LnameTextBox.Location = new System.Drawing.Point(506, 137);
+            this.LnameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LnameTextBox.Name = "LnameTextBox";
-            this.LnameTextBox.Size = new System.Drawing.Size(100, 23);
+            this.LnameTextBox.Size = new System.Drawing.Size(128, 26);
             this.LnameTextBox.TabIndex = 23;
             // 
             // FnameTextBox
             // 
-            this.FnameTextBox.Location = new System.Drawing.Point(394, 74);
+            this.FnameTextBox.Location = new System.Drawing.Point(506, 89);
+            this.FnameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FnameTextBox.Name = "FnameTextBox";
-            this.FnameTextBox.Size = new System.Drawing.Size(100, 23);
+            this.FnameTextBox.Size = new System.Drawing.Size(128, 26);
             this.FnameTextBox.TabIndex = 22;
             // 
             // IDtextBox
             // 
-            this.IDtextBox.Location = new System.Drawing.Point(394, 29);
+            this.IDtextBox.Location = new System.Drawing.Point(506, 35);
+            this.IDtextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.IDtextBox.Name = "IDtextBox";
             this.IDtextBox.ReadOnly = true;
-            this.IDtextBox.Size = new System.Drawing.Size(100, 23);
+            this.IDtextBox.Size = new System.Drawing.Size(128, 26);
             this.IDtextBox.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(254, 244);
+            this.label6.Location = new System.Drawing.Point(326, 293);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 15);
+            this.label6.Size = new System.Drawing.Size(94, 18);
             this.label6.TabIndex = 20;
             this.label6.Text = "Department";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(254, 190);
+            this.label5.Location = new System.Drawing.Point(326, 228);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 15);
+            this.label5.Size = new System.Drawing.Size(35, 18);
             this.label5.TabIndex = 19;
             this.label5.Text = "Age";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(254, 153);
+            this.label4.Location = new System.Drawing.Point(326, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 15);
+            this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 18;
             this.label4.Text = "Gender";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(254, 117);
+            this.label3.Location = new System.Drawing.Point(326, 140);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 15);
+            this.label3.Size = new System.Drawing.Size(85, 18);
             this.label3.TabIndex = 17;
             this.label3.Text = "Last Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(254, 74);
+            this.label2.Location = new System.Drawing.Point(326, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 15);
+            this.label2.Size = new System.Drawing.Size(88, 18);
             this.label2.TabIndex = 16;
             this.label2.Text = "First Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(254, 29);
+            this.label1.Location = new System.Drawing.Point(326, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 15);
+            this.label1.Size = new System.Drawing.Size(26, 18);
             this.label1.TabIndex = 15;
             this.label1.Text = "ID";
             // 
             // attendanceTab
             // 
+            this.attendanceTab.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.attendanceTab.Controls.Add(this.SaveAttendanceButton);
             this.attendanceTab.Controls.Add(this.weeklyEndDate);
             this.attendanceTab.Controls.Add(this.weeklyStartDate);
@@ -293,18 +308,19 @@
             this.attendanceTab.Controls.Add(this.label8);
             this.attendanceTab.Controls.Add(this.label9);
             this.attendanceTab.Controls.Add(this.label10);
-            this.attendanceTab.Location = new System.Drawing.Point(4, 24);
+            this.attendanceTab.Location = new System.Drawing.Point(4, 27);
+            this.attendanceTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.attendanceTab.Name = "attendanceTab";
-            this.attendanceTab.Size = new System.Drawing.Size(768, 408);
+            this.attendanceTab.Size = new System.Drawing.Size(990, 492);
             this.attendanceTab.TabIndex = 2;
             this.attendanceTab.Text = "Weekly attendance";
-            this.attendanceTab.UseVisualStyleBackColor = true;
             // 
             // SaveAttendanceButton
             // 
-            this.SaveAttendanceButton.Location = new System.Drawing.Point(292, 279);
+            this.SaveAttendanceButton.Location = new System.Drawing.Point(376, 335);
+            this.SaveAttendanceButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveAttendanceButton.Name = "SaveAttendanceButton";
-            this.SaveAttendanceButton.Size = new System.Drawing.Size(120, 33);
+            this.SaveAttendanceButton.Size = new System.Drawing.Size(154, 40);
             this.SaveAttendanceButton.TabIndex = 34;
             this.SaveAttendanceButton.Text = "Save";
             this.SaveAttendanceButton.UseVisualStyleBackColor = true;
@@ -313,71 +329,76 @@
             // weeklyEndDate
             // 
             this.weeklyEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.weeklyEndDate.Location = new System.Drawing.Point(292, 130);
+            this.weeklyEndDate.Location = new System.Drawing.Point(376, 156);
+            this.weeklyEndDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weeklyEndDate.Name = "weeklyEndDate";
-            this.weeklyEndDate.Size = new System.Drawing.Size(200, 23);
+            this.weeklyEndDate.Size = new System.Drawing.Size(256, 26);
             this.weeklyEndDate.TabIndex = 33;
             // 
             // weeklyStartDate
             // 
             this.weeklyStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.weeklyStartDate.Location = new System.Drawing.Point(292, 79);
+            this.weeklyStartDate.Location = new System.Drawing.Point(376, 95);
+            this.weeklyStartDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.weeklyStartDate.Name = "weeklyStartDate";
-            this.weeklyStartDate.Size = new System.Drawing.Size(200, 23);
+            this.weeklyStartDate.Size = new System.Drawing.Size(256, 26);
             this.weeklyStartDate.TabIndex = 32;
             // 
             // OvertimeHours
             // 
-            this.OvertimeHours.Location = new System.Drawing.Point(292, 211);
+            this.OvertimeHours.Location = new System.Drawing.Point(376, 253);
+            this.OvertimeHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.OvertimeHours.Name = "OvertimeHours";
-            this.OvertimeHours.Size = new System.Drawing.Size(100, 23);
+            this.OvertimeHours.Size = new System.Drawing.Size(128, 26);
             this.OvertimeHours.TabIndex = 31;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(114, 214);
+            this.label11.Location = new System.Drawing.Point(146, 257);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(134, 15);
+            this.label11.Size = new System.Drawing.Size(182, 18);
             this.label11.TabIndex = 30;
             this.label11.Text = "Overtime hours worked:";
             // 
             // RegularHours
             // 
-            this.RegularHours.Location = new System.Drawing.Point(292, 173);
+            this.RegularHours.Location = new System.Drawing.Point(376, 208);
+            this.RegularHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RegularHours.Name = "RegularHours";
-            this.RegularHours.Size = new System.Drawing.Size(100, 23);
+            this.RegularHours.Size = new System.Drawing.Size(128, 26);
             this.RegularHours.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(114, 173);
+            this.label8.Location = new System.Drawing.Point(146, 208);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 15);
+            this.label8.Size = new System.Drawing.Size(169, 18);
             this.label8.TabIndex = 26;
             this.label8.Text = "Regular hours worked:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(114, 130);
+            this.label9.Location = new System.Drawing.Point(146, 156);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 15);
+            this.label9.Size = new System.Drawing.Size(73, 18);
             this.label9.TabIndex = 25;
             this.label9.Text = "End Date";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(114, 85);
+            this.label10.Location = new System.Drawing.Point(146, 102);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(58, 15);
+            this.label10.Size = new System.Drawing.Size(81, 18);
             this.label10.TabIndex = 24;
             this.label10.Text = "Start Date";
             // 
             // LeaveTab
             // 
+            this.LeaveTab.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.LeaveTab.Controls.Add(this.SaveLeavebutton);
             this.LeaveTab.Controls.Add(this.ReasontextBox);
             this.LeaveTab.Controls.Add(this.label14);
@@ -385,18 +406,19 @@
             this.LeaveTab.Controls.Add(this.startDate);
             this.LeaveTab.Controls.Add(this.label12);
             this.LeaveTab.Controls.Add(this.label13);
-            this.LeaveTab.Location = new System.Drawing.Point(4, 24);
+            this.LeaveTab.Location = new System.Drawing.Point(4, 27);
+            this.LeaveTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LeaveTab.Name = "LeaveTab";
-            this.LeaveTab.Size = new System.Drawing.Size(768, 408);
+            this.LeaveTab.Size = new System.Drawing.Size(990, 492);
             this.LeaveTab.TabIndex = 3;
             this.LeaveTab.Text = "Request Leave";
-            this.LeaveTab.UseVisualStyleBackColor = true;
             // 
             // SaveLeavebutton
             // 
-            this.SaveLeavebutton.Location = new System.Drawing.Point(279, 300);
+            this.SaveLeavebutton.Location = new System.Drawing.Point(359, 360);
+            this.SaveLeavebutton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveLeavebutton.Name = "SaveLeavebutton";
-            this.SaveLeavebutton.Size = new System.Drawing.Size(120, 33);
+            this.SaveLeavebutton.Size = new System.Drawing.Size(154, 40);
             this.SaveLeavebutton.TabIndex = 40;
             this.SaveLeavebutton.Text = "Save";
             this.SaveLeavebutton.UseVisualStyleBackColor = true;
@@ -404,63 +426,69 @@
             // 
             // ReasontextBox
             // 
-            this.ReasontextBox.Location = new System.Drawing.Point(279, 169);
+            this.ReasontextBox.Location = new System.Drawing.Point(359, 203);
+            this.ReasontextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ReasontextBox.Multiline = true;
             this.ReasontextBox.Name = "ReasontextBox";
-            this.ReasontextBox.Size = new System.Drawing.Size(305, 94);
+            this.ReasontextBox.Size = new System.Drawing.Size(391, 112);
             this.ReasontextBox.TabIndex = 39;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(101, 199);
+            this.label14.Location = new System.Drawing.Point(129, 239);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 15);
+            this.label14.Size = new System.Drawing.Size(182, 18);
             this.label14.TabIndex = 38;
             this.label14.Text = "Reason for leave request";
             // 
             // endDate
             // 
             this.endDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.endDate.Location = new System.Drawing.Point(279, 119);
+            this.endDate.Location = new System.Drawing.Point(359, 143);
+            this.endDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(200, 23);
+            this.endDate.Size = new System.Drawing.Size(256, 26);
             this.endDate.TabIndex = 37;
             // 
             // startDate
             // 
             this.startDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.startDate.Location = new System.Drawing.Point(279, 68);
+            this.startDate.Location = new System.Drawing.Point(359, 82);
+            this.startDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.startDate.Name = "startDate";
-            this.startDate.Size = new System.Drawing.Size(200, 23);
+            this.startDate.Size = new System.Drawing.Size(256, 26);
             this.startDate.TabIndex = 36;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(101, 119);
+            this.label12.Location = new System.Drawing.Point(129, 143);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 15);
+            this.label12.Size = new System.Drawing.Size(73, 18);
             this.label12.TabIndex = 35;
             this.label12.Text = "End Date";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(101, 74);
+            this.label13.Location = new System.Drawing.Point(129, 89);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 15);
+            this.label13.Size = new System.Drawing.Size(81, 18);
             this.label13.TabIndex = 34;
             this.label13.Text = "Start Date";
             // 
             // EmployeeDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1028, 540);
             this.Controls.Add(this.EmployeeHomeTab);
+            this.Font = new System.Drawing.Font("Georgia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "EmployeeDashboard";
-            this.Text = "EmployeeDashboard";
+            this.Text = "Employee Dashboard";
             this.EmployeeHomeTab.ResumeLayout(false);
             this.HomeTab.ResumeLayout(false);
             this.DetailsTab.ResumeLayout(false);

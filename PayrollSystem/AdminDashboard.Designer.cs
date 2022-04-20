@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+        private DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -180,7 +181,7 @@
             this.addPaygradeButton.TabIndex = 1;
             this.addPaygradeButton.Text = "Add paygrade";
             this.addPaygradeButton.UseVisualStyleBackColor = true;
-            this.addPaygradeButton.Click += new System.EventHandler(this.addPaygradeButton_Click);
+            this.addPaygradeButton.Click += new System.EventHandler(this.AddPaygradeButton_Click);
             // 
             // addEmployeebutton
             // 
@@ -190,7 +191,7 @@
             this.addEmployeebutton.TabIndex = 0;
             this.addEmployeebutton.Text = "Add Employee";
             this.addEmployeebutton.UseVisualStyleBackColor = true;
-            this.addEmployeebutton.Click += new System.EventHandler(this.addEmployeebutton_Click);
+            this.addEmployeebutton.Click += new System.EventHandler(this.AddEmployeebutton_Click);
             // 
             // AddEmployeeTab
             // 

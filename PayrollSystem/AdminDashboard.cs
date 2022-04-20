@@ -17,28 +17,25 @@ namespace PayrollSystem
             InitializeComponent();
         }
 
-        private void addEmployeebutton_Click(object sender, EventArgs e)
+        private void AddEmployeebutton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.AddEmployeeTab;
+            homeTab.SelectedTab = AddEmployeeTab;
         }
 
         private void ViewEmployeesbutton_Click(object sender, EventArgs e)
         {
-            //TODO
-            this.homeTab.SelectedTab = this.ViewEmployeesTab;
 
-            populateEmployeesListView();
-
+            homeTab.SelectedTab = ViewEmployeesTab;
+            PopulateEmployeesListView();
         }
 
-        private void populateEmployeesListView()
+        private void PopulateEmployeesListView()
         {
-            List<Employee> employees = getEmployees();
+            List<Employee> employees = GetEmployees();
             listViewEmployees.Items.Clear();
             listViewEmployees.Columns.Clear();
-            string[] columnNames = { "ID", "First Name", "Last Name", "Gender", "Age",
-            "Department", "Pay Grade"};
-            foreach (string a in columnNames)
+            foreach (string a in new[] { "ID", "First Name", "Last Name", "Gender", "Age",
+                                    "Department", "Pay Grade"})
             {
                 listViewEmployees.Columns.Add(a, 70);
 
@@ -61,21 +58,20 @@ namespace PayrollSystem
             }
         }
 
-        private void addPaygradeButton_Click(object sender, EventArgs e)
+        private void AddPaygradeButton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.addPayGradeTab;
+            homeTab.SelectedTab = addPayGradeTab;
         }
 
         private void ViewPayGradesbutton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.viewPayGradeTab;
-            List<PayGrade> paygrades = getPaygrades();
+            homeTab.SelectedTab = viewPayGradeTab;
+            List<PayGrade> paygrades = GetPaygrades();
             PayGradeslistView.Items.Clear();
             PayGradeslistView.Columns.Clear();
-            foreach (String a  in new[] { "ID", "Name", "Hourly Pay", "Overtime Pay" } )
+            foreach (String a in new[] { "ID", "Name", "Hourly Pay", "Overtime Pay" })
             {
                 PayGradeslistView.Columns.Add(a, 100);
-
             }
             foreach (PayGrade grade in paygrades)
             {
@@ -92,13 +88,15 @@ namespace PayrollSystem
 
         private void PayrollButton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.payRollInfoTab;
+            homeTab.SelectedTab = payRollInfoTab;
         }
 
         private void SaveEmployeeButton_Click(object sender, EventArgs e)
         {
-            TextBox[] textcontrols = { EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox, EmployeeDepartmentTextbox, EmployeePaygradeTextBox };
-            foreach (TextBox a in textcontrols)
+
+            foreach (TextBox a in new[]{
+                EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox,
+                EmployeeDepartmentTextbox, EmployeePaygradeTextBox})
             {
                 if (a.Text == "")
                 {
@@ -111,51 +109,61 @@ namespace PayrollSystem
             string lname = EmployeeLnametextBox.Text;
             string gender = EmployeeGenderComboBox.Text;
             int age = int.Parse(EmployeeAgetextBox.Text);
-            string department = EmployeeDepartmentTextbox.Text;
-            string payGrade = EmployeePaygradeTextBox.Text;
+            int department = int.Parse(EmployeeDepartmentTextbox.Text);
+            int payGrade = int.Parse(EmployeePaygradeTextBox.Text);
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
+                MySqlCommand command = new();
+                command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, DEPARTMENTID, GRADEID, USERNAME, USERPASSWORD) VALUES (@fname, @lname, @age, @gender, @deptid, @grade, @username, PASSWORD(@userpass));";
+                command.Parameters.AddWithValue("@fname", fname);
+                command.Parameters.AddWithValue("@lname", lname);
+                command.Parameters.AddWithValue("@age", age);
+                command.Parameters.AddWithValue("@gender", gender);
 
+                command.Parameters.AddWithValue("@deptid", department);
+                command.Parameters.AddWithValue("@grade", payGrade);
 
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
+                string username = $"{lname}{age}";
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@userpass", "password");
+
+                RunNonQuery(command);
+
+                MessageBox.Show("New employee has been added!");
+                homeTab.SelectedTab = Home_Tab;
+                foreach (TextBox a in new[]{
+                        EmployeeFnametextBox, EmployeeLnametextBox, EmployeeAgetextBox,
+                        EmployeeDepartmentTextbox, EmployeePaygradeTextBox})
                 {
-                    conn.Open();
-                    using var command = conn.CreateCommand();
-                    command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, DEPARTMENTID, GRADEID, USERNAME, USERPASSWORD) VALUES (@fname, @lname, @age, @gender, @deptid, @grade, @username, PASSWORD(@userpass));";
-                    command.Parameters.AddWithValue("@fname", fname);
-                    command.Parameters.AddWithValue("@lname", lname);
-                    command.Parameters.AddWithValue("@age", age);
-                    command.Parameters.AddWithValue("@gender", gender);
-
-                    command.Parameters.AddWithValue("@deptid", 1);
-                    command.Parameters.AddWithValue("@grade", 1);
-
-                    string username = $"{fname}{lname}";
-                    
-                    command.Parameters.AddWithValue("@username", username);
-                    command.Parameters.AddWithValue("@userpass", "password");
-                    command.Prepare();
-
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("New employee has been added!");
-                    this.homeTab.SelectedTab = this.Home_Tab;
-                    foreach (TextBox a in textcontrols)
-                    {
-                        a.Text = "";
-                    }
+                    a.Text = "";
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error! Exiting");
-                    Console.WriteLine(ex.Message);
-                    Application.Exit();
-                    throw;
-                }
-                conn.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error! Exiting");
+                Console.WriteLine(ex.Message);
+                Application.Exit();
+                throw;
+            }
+
+        }
+
+        private void RunNonQuery(MySqlCommand cmd)
+        {
+            MySqlConnection conn = databaseConnectionWrapper.Connection;
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            conn.Close();
         }
 
         private void SaveDepartmentbutton_Click(object sender, EventArgs e)
@@ -166,41 +174,28 @@ namespace PayrollSystem
                 MessageBox.Show("Department Name is needed!");
                 return;
             }
-
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
+                MySqlCommand cmd = new();
+                cmd.CommandText = @"INSERT INTO DEPARTMENT (DEPARTMENTNAME) VALUES (@deptname);";
+                cmd.Parameters.AddWithValue("@deptname", dept_name);
+                RunNonQuery(cmd);
 
-
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
-                {
-                    conn.Open();
-                    using var command = conn.CreateCommand();
-                    command.CommandText = @"INSERT INTO DEPARTMENT (DEPARTMENTNAME) VALUES (@deptname);";
-
-
-                    command.Parameters.AddWithValue("@deptname", dept_name);
-
-                    command.Prepare();
-
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("New department has been added!");
-                    DeptNametextBox.Text = "";
-                    this.homeTab.SelectedTab = this.Home_Tab;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    throw;
-                }
-                conn.Close();
+                MessageBox.Show("New department has been added!");
+                DeptNametextBox.Text = "";
+                homeTab.SelectedTab = Home_Tab;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+
         }
-        private List<Employee> getEmployees() 
+        private List<Employee> GetEmployees()
         {
-            List<Employee> employeesList = new List<Employee>();
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            List<Employee> employeesList = new();
+
             if (databaseConnectionWrapper != null)
             {
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
@@ -210,21 +205,19 @@ namespace PayrollSystem
                     using var command = conn.CreateCommand();
                     command.CommandText = @"SELECT * FROM EMPLOYEE;";
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string fname = reader.GetString("FNAME");
-                            string lname = reader.GetString("LNAME");
-                            string gender = reader.GetString("GENDER");
-                            int emp_id = reader.GetInt32("EMPLOYEEID");
-                            int age = reader.GetInt32("AGE");
-                            int dept_id = reader.GetInt32("DEPARTMENTID");
-                            int grade_id = reader.GetInt32("GRADEID");
+                        string fname = reader.GetString("FNAME");
+                        string lname = reader.GetString("LNAME");
+                        string gender = reader.GetString("GENDER");
+                        int emp_id = reader.GetInt32("EMPLOYEEID");
+                        int age = reader.GetInt32("AGE");
+                        int dept_id = reader.GetInt32("DEPARTMENTID");
+                        int grade_id = reader.GetInt32("GRADEID");
 
 
-                            employeesList.Add(new Employee(emp_id, fname, lname, gender, age, dept_id, grade_id));
-                        }
+                        employeesList.Add(new Employee(emp_id, fname, lname, gender, age, dept_id, grade_id));
                     }
                 }
                 catch (Exception)
@@ -237,10 +230,10 @@ namespace PayrollSystem
             return employeesList;
 
         }
-        private List<Department> getDepartments()
+        private List<Department> GetDepartments()
         {
-            List<Department> departmentList = new List<Department>();
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            List<Department> departmentList = new();
+
             if (databaseConnectionWrapper != null)
             {
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
@@ -250,15 +243,13 @@ namespace PayrollSystem
                     using var command = conn.CreateCommand();
                     command.CommandText = @"SELECT * FROM DEPARTMENT;";
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string name = reader.GetString("DEPARTMENTNAME");
-                            int dept_id = reader.GetInt32("DEPARTMENTID");
+                        string name = reader.GetString("DEPARTMENTNAME");
+                        int dept_id = reader.GetInt32("DEPARTMENTID");
 
-                            departmentList.Add(new Department(dept_id, name));
-                        }
+                        departmentList.Add(new Department(dept_id, name));
                     }
                 }
                 catch (Exception)
@@ -270,10 +261,10 @@ namespace PayrollSystem
             }
             return departmentList;
         }
-        private List<PayGrade> getPaygrades()
+        private List<PayGrade> GetPaygrades()
         {
-            List<PayGrade> paygradesList = new List<PayGrade>();
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            List<PayGrade> paygradesList = new();
+
             if (databaseConnectionWrapper != null)
             {
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
@@ -283,18 +274,16 @@ namespace PayrollSystem
                     using var command = conn.CreateCommand();
                     command.CommandText = @"SELECT * FROM PAYGRADE;";
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string name = reader.GetString(1);
-                            double hourly = reader.GetDouble(2);
-                            double overtime = reader.GetDouble(3);
-                            int grade_id = reader.GetInt32(0);
-                            paygradesList.Add(new PayGrade(grade_id, name, hourly, overtime));
+                        string name = reader.GetString(1);
+                        double hourly = reader.GetDouble(2);
+                        double overtime = reader.GetDouble(3);
+                        int grade_id = reader.GetInt32(0);
+                        paygradesList.Add(new PayGrade(grade_id, name, hourly, overtime));
 
 
-                        }
                     }
                 }
                 catch (Exception)
@@ -309,8 +298,6 @@ namespace PayrollSystem
         }
         private void SaveGradebutton_Click(object sender, EventArgs e)
         {
-            
-
             if (gradeNameTextbox.Text == "" || hourlyPayTextBox.Text == "" || OvertimetextBox.Text == "")
             {
                 MessageBox.Show("Please fill all details!");
@@ -320,45 +307,31 @@ namespace PayrollSystem
             double hourly = double.Parse(hourlyPayTextBox.Text);
             double overtime = double.Parse(OvertimetextBox.Text);
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
+                MySqlCommand command = new();
+                command.CommandText = @"INSERT INTO PAYGRADE (GRADENAME, HOURLYPAY, OVERTIMEPAY) VALUES (@name, @hourly, @overtime);";
+                command.Parameters.AddWithValue("@name", grade_name);
+                command.Parameters.AddWithValue("@hourly", hourly);
+                command.Parameters.AddWithValue("@overtime", overtime);
 
+                RunNonQuery(command);
 
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
-                {
-                    conn.Open();
-                    using var command = conn.CreateCommand();
-                    command.CommandText = @"INSERT INTO PAYGRADE (GRADENAME, HOURLYPAY, OVERTIMEPAY) VALUES (@name, @hourly, @overtime);";
-
-
-                    command.Parameters.AddWithValue("@name", grade_name);
-                    command.Parameters.AddWithValue("@hourly", hourly);
-                    command.Parameters.AddWithValue("@overtime", overtime);
-
-
-                    command.Prepare();
-
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("New pay grade has been added!");
-                    
-                    homeTab.SelectedTab = Home_Tab;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    throw;
-                }
-                conn.Close();
+                MessageBox.Show("New pay grade has been added!");
+                homeTab.SelectedTab = Home_Tab;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
             }
         }
 
         private void ViewDepartmentButton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.ViewDepartmentTab;
+            homeTab.SelectedTab = ViewDepartmentTab;
 
-            List<Department> departments = getDepartments();
+            List<Department> departments = GetDepartments();
             DepartmentlistView.Items.Clear();
             DepartmentlistView.Columns.Clear();
             DepartmentlistView.Columns.Add("ID", 100);
@@ -378,7 +351,7 @@ namespace PayrollSystem
 
         private void AddDepartmentbutton_Click(object sender, EventArgs e)
         {
-            this.homeTab.SelectedTab = this.AddDepartmentTab;
+            homeTab.SelectedTab = AddDepartmentTab;
         }
 
         private void GeneratePayroll()

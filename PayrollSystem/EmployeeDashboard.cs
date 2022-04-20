@@ -21,18 +21,18 @@ namespace PayrollSystem
         private void UpdteDetailsbutton_Click(object sender, EventArgs e)
         {
             GetEmployeeDetails();
-            this.EmployeeHomeTab.SelectedTab = this.DetailsTab;
+            EmployeeHomeTab.SelectedTab = DetailsTab;
         }
 
         private void AddAttendancebutton_Click(object sender, EventArgs e)
         {
-            this.EmployeeHomeTab.SelectedTab = this.attendanceTab;
+            EmployeeHomeTab.SelectedTab = attendanceTab;
 
         }
 
         private void LeaveButton_Click(object sender, EventArgs e)
         {
-            this.EmployeeHomeTab.SelectedTab = this.LeaveTab;
+            EmployeeHomeTab.SelectedTab = LeaveTab;
 
         }
 
@@ -42,35 +42,27 @@ namespace PayrollSystem
             DateTime _startDate = startDate.Value;
             DateTime _endDate = endDate.Value;
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
-                {
-                    conn.Open();
-                    using var command = conn.CreateCommand();
-                    command.CommandText = @"
+                MySqlCommand command = new();
+                command.CommandText = @"
                                 INSERT INTO LEAVEREQUEST (EMPLOYEEID, STARTDATE, ENDDATE, REASON)
                                 values(@emp_id, @start,@end, @reason);";
 
-                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
-                    command.Parameters.AddWithValue("@start", _startDate);
-                    command.Parameters.AddWithValue("@end", _endDate);
-                    command.Parameters.AddWithValue("@reason", reason);
+                command.Parameters.AddWithValue("@emp_id", EmployeeID);
+                command.Parameters.AddWithValue("@start", _startDate);
+                command.Parameters.AddWithValue("@end", _endDate);
+                command.Parameters.AddWithValue("@reason", reason);
 
-                    command.Prepare();
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Leave request details have been saved!");
-                    this.EmployeeHomeTab.SelectedTab = this.HomeTab;
-                    ReasontextBox.Text = "";
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Cannot connect to database! Exiting");
-                    throw;
-                }
-                conn.Close();
+                RunNonQuery(command);
+                MessageBox.Show("Leave request details have been saved!");
+                EmployeeHomeTab.SelectedTab = HomeTab;
+                ReasontextBox.Text = "";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot connect to database! Exiting");
+                throw;
             }
 
         }
@@ -88,40 +80,32 @@ namespace PayrollSystem
             double regularHours = double.Parse(RegularHours.Text);
             double overtime = double.Parse(OvertimeHours.Text);
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
-                {
-                    conn.Open();
-                    using var command = conn.CreateCommand();
-                    command.CommandText = @"
+                MySqlCommand command = new();
+                command.CommandText = @"
                                 INSERT INTO ATTENDANCE (EMPLOYEEID, STARTDATE, ENDDATE,
                                 REGULARHOURS, OVERTIMEHOURS) values(@emp_id, @start, 
                                 @end, @reg_hrs, @over_hrs);";
 
-                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
-                    command.Parameters.AddWithValue("@start", _startDate);
-                    command.Parameters.AddWithValue("@end", _endDate);
-                    command.Parameters.AddWithValue("@reg_hrs", regularHours);
-                    command.Parameters.AddWithValue("@over_hrs", overtime);
+                command.Parameters.AddWithValue("@emp_id", EmployeeID);
+                command.Parameters.AddWithValue("@start", _startDate);
+                command.Parameters.AddWithValue("@end", _endDate);
+                command.Parameters.AddWithValue("@reg_hrs", regularHours);
+                command.Parameters.AddWithValue("@over_hrs", overtime);
 
-                    command.Prepare();
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Attendance details have been saved!");
-                    this.EmployeeHomeTab.SelectedTab = this.HomeTab;
-                    foreach (TextBox a in new[] { RegularHours , OvertimeHours})
-                    {
-                        a.Text = "";
-                    }
-                }
-                catch (Exception)
+                RunNonQuery(command);
+                MessageBox.Show("Attendance details have been saved!");
+                EmployeeHomeTab.SelectedTab = HomeTab;
+                foreach (TextBox a in new[] { RegularHours, OvertimeHours })
                 {
-                    MessageBox.Show("Cannot connect to database! Exiting");
-                    throw;
+                    a.Text = "";
                 }
-                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot connect to database! Exiting");
+                throw;
             }
 
         }
@@ -130,23 +114,17 @@ namespace PayrollSystem
         {
             TextBox[] textcontrols = { IDtextBox, FnameTextBox, LnameTextBox, AgeTextBox, DepartmentTextBox, PayGradeTextBox };
 
-            int emp_id = int.Parse(IDtextBox.Text );
-            string fname = FnameTextBox.Text ;
-            string lname = LnameTextBox.Text ;
-            string gender = GenderSelect.Text ;
+            string fname = FnameTextBox.Text;
+            string lname = LnameTextBox.Text;
+            string gender = GenderSelect.Text;
             int age = int.Parse(AgeTextBox.Text);
             int dept_id = int.Parse(DepartmentTextBox.Text);
             int grade_id = int.Parse(PayGradeTextBox.Text);
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
-            if (databaseConnectionWrapper != null)
+            try
             {
-                MySqlConnection conn = databaseConnectionWrapper.Connection;
-                try
-                {
-                    conn.Open();
-                    using var command = conn.CreateCommand(); 
-                    command.CommandText = @"
+                MySqlCommand command = new();
+                command.CommandText = @"
                                 UPDATE EMPLOYEE SET 
                                     FNAME = @fname,
                                     LNAME = @lname, 
@@ -156,37 +134,34 @@ namespace PayrollSystem
                                     GRADEID = @grade
                                 WHERE EMPLOYEEID = @emp_id;";
 
-                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
-                    command.Parameters.AddWithValue("@fname", fname);
-                    command.Parameters.AddWithValue("@lname", lname);
-                    command.Parameters.AddWithValue("@age", age);
-                    command.Parameters.AddWithValue("@gender", gender);
+                command.Parameters.AddWithValue("@emp_id", EmployeeID);
+                command.Parameters.AddWithValue("@fname", fname);
+                command.Parameters.AddWithValue("@lname", lname);
+                command.Parameters.AddWithValue("@age", age);
+                command.Parameters.AddWithValue("@gender", gender);
 
-                    command.Parameters.AddWithValue("@deptid", dept_id);
-                    command.Parameters.AddWithValue("@grade", grade_id);
+                command.Parameters.AddWithValue("@deptid", dept_id);
+                command.Parameters.AddWithValue("@grade", grade_id);
 
-                    command.Prepare();
+                RunNonQuery(command);
 
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("Your details have been updated!");
-                    this.EmployeeHomeTab.SelectedTab = this.HomeTab;
-                    foreach (TextBox a in textcontrols)
-                    {
-                        a.Text = "";
-                    }
-                }
-                catch (Exception)
+                MessageBox.Show("Your details have been updated!");
+                EmployeeHomeTab.SelectedTab = HomeTab;
+                foreach (TextBox a in textcontrols)
                 {
-                    MessageBox.Show("Cannot connect to database! Exiting");
-                    throw;
+                    a.Text = "";
                 }
-                conn.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cannot connect to database! Exiting");
+                throw;
             }
 
         }
         private void GetEmployeeDetails()
         {
-            DatabaseConnectionWrapper databaseConnectionWrapper = new DatabaseConnectionWrapper();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new ();
             if (databaseConnectionWrapper != null)
             {
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
@@ -195,29 +170,18 @@ namespace PayrollSystem
                     conn.Open();
                     using var command = conn.CreateCommand();
                     command.CommandText = @"SELECT * FROM EMPLOYEE WHERE EMPLOYEEID=@emp_id;";
-                    command.Parameters.AddWithValue("@emp_id", this.EmployeeID);
+                    command.Parameters.AddWithValue("@emp_id", EmployeeID);
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            string fname = reader.GetString("FNAME");
-                            string lname = reader.GetString("LNAME");
-                            string gender = reader.GetString("GENDER");
-                            int emp_id = reader.GetInt32("EMPLOYEEID");
-                            int age = reader.GetInt32("AGE");
-                            int dept_id = reader.GetInt32("DEPARTMENTID");
-                            int grade_id = reader.GetInt32("GRADEID");
-
-                            IDtextBox.Text = emp_id.ToString();
-                            FnameTextBox.Text = fname;
-                            LnameTextBox.Text = lname;
-                            GenderSelect.Text = gender;
-                            AgeTextBox.Text = age.ToString();
-                            DepartmentTextBox.Text = dept_id.ToString();
-                            PayGradeTextBox.Text = grade_id.ToString();
-
-                        }
+                        IDtextBox.Text = reader.GetInt32("EMPLOYEEID").ToString();
+                        FnameTextBox.Text = reader.GetString("FNAME");
+                        LnameTextBox.Text = reader.GetString("LNAME");
+                        GenderSelect.Text = reader.GetString("GENDER");
+                        AgeTextBox.Text = reader.GetInt32("AGE").ToString();
+                        DepartmentTextBox.Text = reader.GetInt32("DEPARTMENTID").ToString();
+                        PayGradeTextBox.Text = reader.GetInt32("GRADEID").ToString();
                     }
                 }
                 catch (Exception)
@@ -227,6 +191,22 @@ namespace PayrollSystem
                 }
                 conn.Close();
             }
+        }
+        private void RunNonQuery(MySqlCommand cmd)
+        {
+            MySqlConnection conn = databaseConnectionWrapper.Connection;
+            try
+            {
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.Prepare();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            conn.Close();
         }
     }
 }

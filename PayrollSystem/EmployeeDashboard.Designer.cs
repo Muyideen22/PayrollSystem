@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
         public int EmployeeID { get; set; }
+        private DatabaseConnectionWrapper databaseConnectionWrapper = new();
         #region Windows Form Designer generated code
 
         /// <summary>

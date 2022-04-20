@@ -282,8 +282,6 @@ namespace PayrollSystem
                         double overtime = reader.GetDouble(3);
                         int grade_id = reader.GetInt32(0);
                         paygradesList.Add(new PayGrade(grade_id, name, hourly, overtime));
-
-
                     }
                 }
                 catch (Exception)
@@ -293,7 +291,6 @@ namespace PayrollSystem
                 }
                 conn.Close();
             }
-
             return paygradesList;
         }
         private void SaveGradebutton_Click(object sender, EventArgs e)
@@ -316,7 +313,6 @@ namespace PayrollSystem
                 command.Parameters.AddWithValue("@overtime", overtime);
 
                 RunNonQuery(command);
-
                 MessageBox.Show("New pay grade has been added!");
                 homeTab.SelectedTab = Home_Tab;
             }
@@ -343,8 +339,7 @@ namespace PayrollSystem
                         new[] {
                             dept.DepartmentID.ToString(),
                             dept.DepartmentName
-                        }
-                        )
+                        })
                     );
             }
         }

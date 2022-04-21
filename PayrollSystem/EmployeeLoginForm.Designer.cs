@@ -49,7 +49,7 @@
             this.groupBox1.Size = new System.Drawing.Size(313, 245);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Login to access the system";
+            this.groupBox1.Text = "Login to access the system as an employee";
             // 
             // LoginButton
             // 
@@ -97,10 +97,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Name = "EmployeeLoginForm";
-            this.Text = "EmployeeLoginForm";
+            this.Text = "Employee Login Page";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

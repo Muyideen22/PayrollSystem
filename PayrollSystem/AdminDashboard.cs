@@ -325,8 +325,8 @@ namespace PayrollSystem
             List<Department> departments = GetDepartments();
             DepartmentlistView.Items.Clear();
             DepartmentlistView.Columns.Clear();
-            DepartmentlistView.Columns.Add("ID", 100);
-            DepartmentlistView.Columns.Add("Name", 100);
+            DepartmentlistView.Columns.Add("ID", 150);
+            DepartmentlistView.Columns.Add("Name", 150);
             foreach (Department dept in departments)
             {
                 DepartmentlistView.Items.Add(
@@ -352,7 +352,7 @@ namespace PayrollSystem
         private void LoadDepartments(object sender, EventArgs e)
         {
             List<Department> departments = GetDepartments();
-            this.DepartmentsComboBox.Items.Clear();
+            //this.DepartmentsComboBox.Items.Clear();
             this.DepartmentsComboBox.DisplayMember = "Key";
             this.DepartmentsComboBox.ValueMember = "Value";
             Dictionary<string, int> comboSource = new();
@@ -367,7 +367,7 @@ namespace PayrollSystem
 
         private void LoadPayGrades(object sender, EventArgs e)
         {
-            this.PayGradecomboBox.Items.Clear();
+            //this.PayGradecomboBox.Items.Clear();
             List<PayGrade> paygrades = GetPaygrades();
             this.PayGradecomboBox.DisplayMember = "Key";
             this.PayGradecomboBox.ValueMember = "Value";

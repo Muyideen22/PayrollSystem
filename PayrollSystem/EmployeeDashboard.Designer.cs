@@ -38,8 +38,6 @@
             this.SaveDetailsButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.GenderSelect = new System.Windows.Forms.ComboBox();
-            this.PayGradeTextBox = new System.Windows.Forms.TextBox();
-            this.DepartmentTextBox = new System.Windows.Forms.TextBox();
             this.AgeTextBox = new System.Windows.Forms.TextBox();
             this.LnameTextBox = new System.Windows.Forms.TextBox();
             this.FnameTextBox = new System.Windows.Forms.TextBox();
@@ -68,6 +66,8 @@
             this.startDate = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.DepartmentcomboBox = new System.Windows.Forms.ComboBox();
+            this.PayGradeComboBox = new System.Windows.Forms.ComboBox();
             this.EmployeeHomeTab.SuspendLayout();
             this.HomeTab.SuspendLayout();
             this.DetailsTab.SuspendLayout();
@@ -138,11 +138,11 @@
             // DetailsTab
             // 
             this.DetailsTab.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DetailsTab.Controls.Add(this.PayGradeComboBox);
+            this.DetailsTab.Controls.Add(this.DepartmentcomboBox);
             this.DetailsTab.Controls.Add(this.SaveDetailsButton);
             this.DetailsTab.Controls.Add(this.label7);
             this.DetailsTab.Controls.Add(this.GenderSelect);
-            this.DetailsTab.Controls.Add(this.PayGradeTextBox);
-            this.DetailsTab.Controls.Add(this.DepartmentTextBox);
             this.DetailsTab.Controls.Add(this.AgeTextBox);
             this.DetailsTab.Controls.Add(this.LnameTextBox);
             this.DetailsTab.Controls.Add(this.FnameTextBox);
@@ -192,22 +192,6 @@
             this.GenderSelect.Name = "GenderSelect";
             this.GenderSelect.Size = new System.Drawing.Size(155, 26);
             this.GenderSelect.TabIndex = 27;
-            // 
-            // PayGradeTextBox
-            // 
-            this.PayGradeTextBox.Location = new System.Drawing.Point(506, 353);
-            this.PayGradeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PayGradeTextBox.Name = "PayGradeTextBox";
-            this.PayGradeTextBox.Size = new System.Drawing.Size(128, 26);
-            this.PayGradeTextBox.TabIndex = 26;
-            // 
-            // DepartmentTextBox
-            // 
-            this.DepartmentTextBox.Location = new System.Drawing.Point(506, 289);
-            this.DepartmentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DepartmentTextBox.Name = "DepartmentTextBox";
-            this.DepartmentTextBox.Size = new System.Drawing.Size(128, 26);
-            this.DepartmentTextBox.TabIndex = 25;
             // 
             // AgeTextBox
             // 
@@ -308,10 +292,10 @@
             this.attendanceTab.Controls.Add(this.label8);
             this.attendanceTab.Controls.Add(this.label9);
             this.attendanceTab.Controls.Add(this.label10);
-            this.attendanceTab.Location = new System.Drawing.Point(4, 27);
+            this.attendanceTab.Location = new System.Drawing.Point(4, 24);
             this.attendanceTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.attendanceTab.Name = "attendanceTab";
-            this.attendanceTab.Size = new System.Drawing.Size(990, 492);
+            this.attendanceTab.Size = new System.Drawing.Size(990, 495);
             this.attendanceTab.TabIndex = 2;
             this.attendanceTab.Text = "Weekly attendance";
             // 
@@ -406,10 +390,10 @@
             this.LeaveTab.Controls.Add(this.startDate);
             this.LeaveTab.Controls.Add(this.label12);
             this.LeaveTab.Controls.Add(this.label13);
-            this.LeaveTab.Location = new System.Drawing.Point(4, 27);
+            this.LeaveTab.Location = new System.Drawing.Point(4, 24);
             this.LeaveTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LeaveTab.Name = "LeaveTab";
-            this.LeaveTab.Size = new System.Drawing.Size(990, 492);
+            this.LeaveTab.Size = new System.Drawing.Size(990, 495);
             this.LeaveTab.TabIndex = 3;
             this.LeaveTab.Text = "Request Leave";
             // 
@@ -478,6 +462,30 @@
             this.label13.TabIndex = 34;
             this.label13.Text = "Start Date";
             // 
+            // DepartmentcomboBox
+            // 
+            this.DepartmentcomboBox.FormattingEnabled = true;
+            this.DepartmentcomboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.DepartmentcomboBox.Location = new System.Drawing.Point(506, 293);
+            this.DepartmentcomboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DepartmentcomboBox.Name = "DepartmentcomboBox";
+            this.DepartmentcomboBox.Size = new System.Drawing.Size(155, 26);
+            this.DepartmentcomboBox.TabIndex = 30;
+            // 
+            // PayGradeComboBox
+            // 
+            this.PayGradeComboBox.FormattingEnabled = true;
+            this.PayGradeComboBox.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.PayGradeComboBox.Location = new System.Drawing.Point(506, 362);
+            this.PayGradeComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.PayGradeComboBox.Name = "PayGradeComboBox";
+            this.PayGradeComboBox.Size = new System.Drawing.Size(155, 26);
+            this.PayGradeComboBox.TabIndex = 31;
+            // 
             // EmployeeDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -512,8 +520,6 @@
         private Button SaveDetailsButton;
         private Label label7;
         private ComboBox GenderSelect;
-        private TextBox PayGradeTextBox;
-        private TextBox DepartmentTextBox;
         private TextBox AgeTextBox;
         private TextBox LnameTextBox;
         private TextBox FnameTextBox;
@@ -542,5 +548,7 @@
         private DateTimePicker startDate;
         private Label label12;
         private Label label13;
+        private ComboBox PayGradeComboBox;
+        private ComboBox DepartmentcomboBox;
     }
 }

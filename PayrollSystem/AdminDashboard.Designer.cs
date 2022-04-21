@@ -218,11 +218,11 @@
             this.AddEmployeeTab.Controls.Add(this.label4);
             this.AddEmployeeTab.Controls.Add(this.label3);
             this.AddEmployeeTab.Controls.Add(this.label2);
-            this.AddEmployeeTab.Location = new System.Drawing.Point(4, 27);
+            this.AddEmployeeTab.Location = new System.Drawing.Point(4, 24);
             this.AddEmployeeTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddEmployeeTab.Name = "AddEmployeeTab";
             this.AddEmployeeTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.AddEmployeeTab.Size = new System.Drawing.Size(990, 498);
+            this.AddEmployeeTab.Size = new System.Drawing.Size(990, 501);
             this.AddEmployeeTab.TabIndex = 1;
             this.AddEmployeeTab.Text = "Add Employee";
             // 
@@ -399,11 +399,11 @@
             this.AddDepartmentTab.Controls.Add(this.DeptNametextBox);
             this.AddDepartmentTab.Controls.Add(this.SaveDepartmentbutton);
             this.AddDepartmentTab.Controls.Add(this.label10);
-            this.AddDepartmentTab.Location = new System.Drawing.Point(4, 27);
+            this.AddDepartmentTab.Location = new System.Drawing.Point(4, 24);
             this.AddDepartmentTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AddDepartmentTab.Name = "AddDepartmentTab";
             this.AddDepartmentTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.AddDepartmentTab.Size = new System.Drawing.Size(990, 498);
+            this.AddDepartmentTab.Size = new System.Drawing.Size(990, 501);
             this.AddDepartmentTab.TabIndex = 3;
             this.AddDepartmentTab.Text = "Add Department";
             // 
@@ -439,11 +439,11 @@
             // ViewDepartmentTab
             // 
             this.ViewDepartmentTab.Controls.Add(this.DepartmentlistView);
-            this.ViewDepartmentTab.Location = new System.Drawing.Point(4, 27);
+            this.ViewDepartmentTab.Location = new System.Drawing.Point(4, 24);
             this.ViewDepartmentTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ViewDepartmentTab.Name = "ViewDepartmentTab";
             this.ViewDepartmentTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ViewDepartmentTab.Size = new System.Drawing.Size(990, 498);
+            this.ViewDepartmentTab.Size = new System.Drawing.Size(990, 501);
             this.ViewDepartmentTab.TabIndex = 4;
             this.ViewDepartmentTab.Text = "View Departments";
             this.ViewDepartmentTab.UseVisualStyleBackColor = true;
@@ -459,7 +459,7 @@
             this.DepartmentlistView.Location = new System.Drawing.Point(4, 3);
             this.DepartmentlistView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DepartmentlistView.Name = "DepartmentlistView";
-            this.DepartmentlistView.Size = new System.Drawing.Size(982, 492);
+            this.DepartmentlistView.Size = new System.Drawing.Size(982, 495);
             this.DepartmentlistView.TabIndex = 2;
             this.DepartmentlistView.UseCompatibleStateImageBehavior = false;
             this.DepartmentlistView.View = System.Windows.Forms.View.Details;
@@ -467,11 +467,11 @@
             // viewPayGradeTab
             // 
             this.viewPayGradeTab.Controls.Add(this.PayGradeslistView);
-            this.viewPayGradeTab.Location = new System.Drawing.Point(4, 27);
+            this.viewPayGradeTab.Location = new System.Drawing.Point(4, 24);
             this.viewPayGradeTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.viewPayGradeTab.Name = "viewPayGradeTab";
             this.viewPayGradeTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.viewPayGradeTab.Size = new System.Drawing.Size(990, 498);
+            this.viewPayGradeTab.Size = new System.Drawing.Size(990, 501);
             this.viewPayGradeTab.TabIndex = 5;
             this.viewPayGradeTab.Text = "View Pay Grades";
             this.viewPayGradeTab.UseVisualStyleBackColor = true;
@@ -484,7 +484,7 @@
             this.PayGradeslistView.Location = new System.Drawing.Point(4, 3);
             this.PayGradeslistView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PayGradeslistView.Name = "PayGradeslistView";
-            this.PayGradeslistView.Size = new System.Drawing.Size(982, 492);
+            this.PayGradeslistView.Size = new System.Drawing.Size(982, 495);
             this.PayGradeslistView.TabIndex = 0;
             this.PayGradeslistView.UseCompatibleStateImageBehavior = false;
             this.PayGradeslistView.View = System.Windows.Forms.View.Details;
@@ -499,11 +499,11 @@
             this.addPayGradeTab.Controls.Add(this.label11);
             this.addPayGradeTab.Controls.Add(this.label12);
             this.addPayGradeTab.Controls.Add(this.label13);
-            this.addPayGradeTab.Location = new System.Drawing.Point(4, 27);
+            this.addPayGradeTab.Location = new System.Drawing.Point(4, 24);
             this.addPayGradeTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.addPayGradeTab.Name = "addPayGradeTab";
             this.addPayGradeTab.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.addPayGradeTab.Size = new System.Drawing.Size(990, 498);
+            this.addPayGradeTab.Size = new System.Drawing.Size(990, 501);
             this.addPayGradeTab.TabIndex = 6;
             this.addPayGradeTab.Text = "Add Pay Grades";
             // 
@@ -574,10 +574,10 @@
             // 
             // payRollInfoTab
             // 
-            this.payRollInfoTab.Location = new System.Drawing.Point(4, 30);
+            this.payRollInfoTab.Location = new System.Drawing.Point(4, 24);
             this.payRollInfoTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.payRollInfoTab.Name = "payRollInfoTab";
-            this.payRollInfoTab.Size = new System.Drawing.Size(990, 495);
+            this.payRollInfoTab.Size = new System.Drawing.Size(990, 501);
             this.payRollInfoTab.TabIndex = 7;
             this.payRollInfoTab.Text = "Payroll Info";
             this.payRollInfoTab.UseVisualStyleBackColor = true;

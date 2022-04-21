@@ -20,6 +20,8 @@ namespace PayrollSystem
 
         private void UpdteDetailsbutton_Click(object sender, EventArgs e)
         {
+            LoadDepartments();
+            LoadPayGrades();
             GetEmployeeDetails();
             EmployeeHomeTab.SelectedTab = DetailsTab;
         }
@@ -112,14 +114,14 @@ namespace PayrollSystem
 
         private void SaveDetailsButton_Click(object sender, EventArgs e)
         {
-            TextBox[] textcontrols = { IDtextBox, FnameTextBox, LnameTextBox, AgeTextBox, DepartmentTextBox, PayGradeTextBox };
+            TextBox[] textcontrols = { IDtextBox, FnameTextBox, LnameTextBox, AgeTextBox};
 
             string fname = FnameTextBox.Text;
             string lname = LnameTextBox.Text;
             string gender = GenderSelect.Text;
             int age = int.Parse(AgeTextBox.Text);
-            int dept_id = int.Parse(DepartmentTextBox.Text);
-            int grade_id = int.Parse(PayGradeTextBox.Text);
+            int dept_id = ((KeyValuePair<string, int>)DepartmentcomboBox.SelectedItem).Value;
+            int grade_id = ((KeyValuePair<string, int>)PayGradeComboBox.SelectedItem).Value;
 
             try
             {
@@ -180,8 +182,72 @@ namespace PayrollSystem
                         LnameTextBox.Text = reader.GetString("LNAME");
                         GenderSelect.Text = reader.GetString("GENDER");
                         AgeTextBox.Text = reader.GetInt32("AGE").ToString();
-                        DepartmentTextBox.Text = reader.GetInt32("DEPARTMENTID").ToString();
-                        PayGradeTextBox.Text = reader.GetInt32("GRADEID").ToString();
+                        int dept = reader.GetInt32("DEPARTMENTID");
+                        int grade = reader.GetInt32("GRADEID");
+                        DepartmentcomboBox.SelectedValue = dept;
+
+                        PayGradeComboBox.SelectedValue = grade;
+                    } 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+        }
+        private void LoadPayGrades()
+        {
+            //this.PayGradeComboBox.Items.Clear();
+            List<PayGrade> paygrades = GetPaygrades();
+            this.PayGradeComboBox.DisplayMember = "Key";
+            this.PayGradeComboBox.ValueMember = "Value";
+            Dictionary<string, int> comboSource = new();
+
+            foreach (PayGrade grade in paygrades)
+            {
+                comboSource.Add(grade.GradeName, grade.GradeID);
+
+            }
+            PayGradeComboBox.DataSource = new BindingSource(comboSource, null);
+
+        }
+        private void LoadDepartments()
+        {
+            List<Department> departments = GetDepartments();
+            //this.DepartmentcomboBox.Items.Clear();
+            this.DepartmentcomboBox.DisplayMember = "Key";
+            this.DepartmentcomboBox.ValueMember = "Value";
+            Dictionary<string, int> comboSource = new();
+
+            foreach (Department department in departments)
+            {
+                comboSource.Add(department.DepartmentName, department.DepartmentID);
+            }
+            DepartmentcomboBox.DataSource = new BindingSource(comboSource, null);
+
+        }
+        private List<Department> GetDepartments()
+        {
+            List<Department> departmentList = new();
+
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"SELECT * FROM DEPARTMENT;";
+
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string name = reader.GetString("DEPARTMENTNAME");
+                        int dept_id = reader.GetInt32("DEPARTMENTID");
+
+                        departmentList.Add(new Department(dept_id, name));
                     }
                 }
                 catch (Exception)
@@ -191,6 +257,39 @@ namespace PayrollSystem
                 }
                 conn.Close();
             }
+            return departmentList;
+        }
+        private List<PayGrade> GetPaygrades()
+        {
+            List<PayGrade> paygradesList = new();
+
+            if (databaseConnectionWrapper != null)
+            {
+                MySqlConnection conn = databaseConnectionWrapper.Connection;
+                try
+                {
+                    conn.Open();
+                    using var command = conn.CreateCommand();
+                    command.CommandText = @"SELECT * FROM PAYGRADE;";
+
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string name = reader.GetString(1);
+                        double hourly = reader.GetDouble(2);
+                        double overtime = reader.GetDouble(3);
+                        int grade_id = reader.GetInt32(0);
+                        paygradesList.Add(new PayGrade(grade_id, name, hourly, overtime));
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot connect to database! Exiting");
+                    throw;
+                }
+                conn.Close();
+            }
+            return paygradesList;
         }
         private void RunNonQuery(MySqlCommand cmd)
         {

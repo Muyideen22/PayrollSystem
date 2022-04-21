@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PayrollSystem
+﻿namespace PayrollSystem
 {
     internal class PayGrade
     {
@@ -12,7 +6,7 @@ namespace PayrollSystem
         public string GradeName { get; set; }
         public double HourlyPay { get; set; }
         public double overTimePay { get; set; } = 0;
-    
+
         public PayGrade(int ID, string name, double hourlyRate, double overtimeRate)
         {
             GradeID = ID;

@@ -2,7 +2,7 @@
 {
     internal class Employee
     {
-        
+
         public int EmployeeID { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
@@ -11,7 +11,8 @@
         public int Department { get; set; }
         public int Grade { get; set; }
 
-        public Employee(int ID, string fname, string lname, string gender, int age, int department, int grade) {
+        public Employee(int ID, string fname, string lname, string gender, int age, int department, int grade)
+        {
             EmployeeID = ID;
             FName = fname;
             LName = lname;
@@ -24,7 +25,7 @@
 
         new public string[] ToString()
         {
-            return new []{
+            return new[]{
                    EmployeeID.ToString(),
                    FName,
                    LName,

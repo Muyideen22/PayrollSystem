@@ -1,5 +1,4 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 namespace PayrollSystem
 {
     public class DatabaseConnectionWrapper
@@ -12,7 +11,7 @@ namespace PayrollSystem
             Connection = Connect();
         }
 
-        public MySqlConnection Connect()
+        public static MySqlConnection Connect()
         {
 
             string connectionString = @"host=127.0.0.1;port=3306;user id=root;password=root;database=payrollsys;";

@@ -3,13 +3,13 @@
     internal class Payroll
     {
         public string PayrollID { get; set; }
-        public Employee Employee { get; set; }
+        public int Employee { get; set; }
         public double NetSalary { get; set; }
         public double GrossSalary { get; set; }
         public double TaxDeducted { get; set; }
 
-        public Payroll(string ID, Employee employee, double grossSalary)
-        { 
+        public Payroll(string ID, int employee, double grossSalary)
+        {
             PayrollID = ID;
             Employee = employee;
             GrossSalary = grossSalary;

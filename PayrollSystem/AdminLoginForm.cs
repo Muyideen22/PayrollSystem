@@ -20,15 +20,15 @@ namespace PayrollSystem
                 return;
             }
 
-            DatabaseConnectionWrapper databaseConnectionWrapper = new ();
+            DatabaseConnectionWrapper databaseConnectionWrapper = new();
             if (databaseConnectionWrapper != null)
             {
-                
-            
+
+
                 MySqlConnection conn = databaseConnectionWrapper.Connection;
                 try
                 {
-                    conn.Open();        
+                    conn.Open();
                     using var command = conn.CreateCommand();
                     command.CommandText = @"SELECT * FROM admin WHERE username = @username AND USERPASSword=PASSWORD(@user_pass);";
                     command.Parameters.AddWithValue("username", username);

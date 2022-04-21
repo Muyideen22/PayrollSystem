@@ -1,7 +1,8 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+//using PayrollSystem;
 
-namespace PayrollTest
+namespace UnitTestProject1
 {
     [TestClass]
     public class UnitTest1

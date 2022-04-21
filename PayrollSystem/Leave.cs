@@ -8,8 +8,8 @@
         public DateTime EndDate { get; set; }
 
         public Leave(string leaveID, Employee employee, DateTime start, DateTime end)
-        { 
-            LeaveID = leaveID; 
+        {
+            LeaveID = leaveID;
             Employee = employee;
             StartDate = start;
             EndDate = end;

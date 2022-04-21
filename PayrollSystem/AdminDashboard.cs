@@ -111,7 +111,9 @@ namespace PayrollSystem
             try
             {
                 MySqlCommand command = new();
-                command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, DEPARTMENTID, GRADEID, USERNAME, USERPASSWORD) VALUES (@fname, @lname, @age, @gender, @deptid, @grade, @username, PASSWORD(@userpass));";
+                command.CommandText = @"INSERT INTO EMPLOYEE (FNAME, LNAME, AGE, GENDER, 
+                        DEPARTMENTID, GRADEID, USERNAME, USERPASSWORD) VALUES (@fname, @lname, @age, @gender,
+                        @deptid, @grade, @username, PASSWORD(@userpass));";
                 command.Parameters.AddWithValue("@fname", fname);
                 command.Parameters.AddWithValue("@lname", lname);
                 command.Parameters.AddWithValue("@age", age);
@@ -259,7 +261,6 @@ namespace PayrollSystem
         private List<PayGrade> GetPaygrades()
         {
             List<PayGrade> paygradesList = new();
-
             if (databaseConnectionWrapper != null)
             {
                 MySqlConnection conn = databaseConnectionWrapper.Connection;

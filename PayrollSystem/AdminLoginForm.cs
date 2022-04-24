@@ -74,5 +74,10 @@ namespace PayrollSystem
 
 
         }
+
+        private void AdminLoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
